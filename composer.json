@@ -1,0 +1,43 @@
+{
+  "name": "selene-framework/starter-project",
+  "description": "Selene Framework Starter Project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Impactwave",
+      "email": "impactwave@impactwave.com",
+      "homepage": "http://impactwave.com"
+    },
+    {
+      "name": "Cláudio Silva",
+      "email": "claudio.silva@impactwave.com"
+    }
+  ],
+  "type": "project",
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "vlucas/phpdotenv": "~1.1@dev",
+    "selene-framework/selene-kernel": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "private/app/classes",
+      "private/app/modules",
+      "private/app/models"
+    ],
+    "files": [
+      "private/config/env.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [],
+    "post-update-cmd": [],
+    "post-create-project-cmd": [
+      "cp .env.example .env"
+    ]
+  }
+}
