@@ -6,7 +6,8 @@ return [
     PageRoute ([
       'title'          => 'Welcome',
       'URI'            => '',
-      'module'         => 'welcome/index',
+      'module'         => 'welcome',
+      'view'           => 'index.html',
       'autoController' => true,
     ]),
 
