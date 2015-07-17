@@ -6,13 +6,15 @@ class Welcome extends Controller
 {
   const ref = __CLASS__;
 
-  protected function model ()
+  protected function viewModel ()
   {
     return [
-      ['url' => 'example', 'text' => 'Example module'],
-      ['url' => '#', 'text' => 'Getting Started'],
-      ['url' => '#', 'text' => 'Introduction'],
-      ['url' => '#', 'text' => 'Creating your first page'],
+      'list1' => [
+        ['url' => 'example', 'text' => 'Example module'],
+        ['url' => '#', 'text' => 'Getting Started'],
+        ['url' => '#', 'text' => 'Introduction'],
+        ['url' => '#', 'text' => 'Creating your first page'],
+      ],
     ];
   }
 
@@ -35,7 +37,7 @@ class Welcome extends Controller
         <p>Follow these links to get you started:</p>
 
         <ul class="list">
-          <Repeat for="{{ !default }}">
+          <Repeat for="{{ !list1}}">
             <li><a href="{{ url }}">{{ text }}</a></li>
           </Repeat>
         </ul>
