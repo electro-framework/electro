@@ -7,13 +7,16 @@ body {
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #B0BEE5;
+.container {
+  text-align: center;
 }
 
-li {
+.container a {
+  text-decoration: none;
+  color: #5971b3;
+}
+
+.list li {
   list-style-type: square;
   width: 180px;
   text-align: left;
@@ -26,10 +29,6 @@ code {
   padding: 0 5px;
 }
 
-.container {
-  text-align: center;
-}
-
 .banner {
   background: white;
   padding: 20px 0 50px;
@@ -37,7 +36,7 @@ code {
   margin-bottom: 50px;
 }
 
-.title {
+.banner > .title {
   font-size: 128px;
   display: inline-block;
 }
@@ -53,10 +52,6 @@ code {
   font-size: 16px;
 }
 
-.intro {
-  margin-top: 50px;
-}
-
 .text {
   border: 1px solid #EEE;
   padding: 10px 30px;
@@ -64,4 +59,23 @@ code {
   text-align: left;
   max-width: 600px;
   margin: 30px auto;
+}
+
+.intro {
+  padding: 0 0 80px 0;
+}
+
+a.btn {
+  color: #FFF;
+  background: #999;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.space {
+  padding: 20px 0;
 }

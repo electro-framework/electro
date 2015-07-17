@@ -17,7 +17,8 @@ return [
     'isSessionRequired'   => false,
 
     'modules' => [
-      'example-module',
+      'ExampleModule',
+      'ModulesManager',
     ],
 
   ]

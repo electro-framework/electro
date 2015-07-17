@@ -1,23 +1,10 @@
 <?php
 
-use App\Controllers\Welcome;
+use App\Config\App;
 
 return [
   'routes' => [
 
-    PageRoute ([
-      'title'      => 'Welcome',
-      'URI'        => '',
-      'controller' => Welcome::ref,
-    ]),
-
-    PageRoute ([
-      'title'          => 'Example Module',
-      'URI'            => 'example',
-      'module'         => 'example-module',
-      'view'           => 'index.html',
-      'autoController' => true,
-    ]),
-
+    App::routes()
   ],
 ];

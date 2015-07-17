@@ -1,0 +1,30 @@
+body {
+  color: #747c80;
+  background: #F8F8F8;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  padding: 10px 20px;
+}
+
+.container a {
+  text-decoration: none;
+  color: #5971b3;
+}
+
+.banner-small {
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.banner-small > .title {
+  float: right;
+  font-size: 25px;
+  line-height: 77px;
+  padding-right: 20px;
+  display: inline-block;
+}
+

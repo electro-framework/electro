@@ -30,17 +30,27 @@ class Welcome extends Controller
       </div>
 
       <div class="intro">
+
         <h1>Well done!</h1>
-        <p>You have succesfully installed Selene on your computer.</p><br>
+        <p>You have succesfully installed Selene on your computer.</p><br><br>
 
         <h2>Now what?</h2>
-        <p>Follow these links to get you started:</p>
+        <div class="text">
+          <p>The <i>express way</i> to start is by opening the Modules Manager and installing some pre-made moules on
+             this application.</p>
+          <div class="center space">
+            <a class="btn" href="modules-manager">Install Modules</a>
+          </div>
+          <p>P.S. Don't forget remove this example module after you've finished.</p>
+        </div>
 
+        <p>You may also want to open these links for example and documentation pages:</p>
         <ul class="list">
           <Repeat for="{{ !list1}}">
             <li><a href="{{ url }}">{{ text }}</a></li>
           </Repeat>
         </ul>
+
       </div>
 
     </Master>
