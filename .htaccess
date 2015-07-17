@@ -3,18 +3,21 @@
   Options +SymLinksIfOwnerMatch
   RewriteEngine On
 
-  # If a file or folder exists for the given URI, serve it.
-  RewriteCond %{REQUEST_FILENAME} -f [or]
-  RewriteCond %{REQUEST_FILENAME} -d
+  # Deny access to the private folder and to anything starting with a dot.
+  RewriteRule ^(private/|\.) - [F,L,NC]
+
+  # Serve existing files files.
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
+
+  # Deny all other existing files.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [F,L,NC]
 
   # Split the REQUEST_URI into a BASE_URI and a PATH.
   RewriteRule ^(.*) - [E=PATH:/$1]
   RewriteCond %{REQUEST_URI}%{ENV:PATH} ^(.*?)(.+)\2$
   RewriteRule ^ - [E=BASE_URI:%1]
-
-  # Redirect Trailing Slashes.
-  RewriteRule ^(.*)/$ %{ENV:BASE_URI}/$1 [L,P]
 
   # Call the front-controller.
   RewriteRule ^ %{ENV:BASE_URI}/index.php [L]

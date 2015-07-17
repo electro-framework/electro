@@ -1,11 +1,13 @@
 vendor
 composer.lock
-public_html/lib
-public_html/dist/*
+lib
+dist
 node_modules
+.env
+
 .idea
 *.log
-.env
 .DS_Store
 Thumbs.db
+
 !**/.gitkeep

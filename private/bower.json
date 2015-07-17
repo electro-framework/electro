@@ -1,0 +1,14 @@
+{
+  "name": "*",
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip",
+    "datatables": "~1.10.5",
+    "datatables-plugins": "~1.0.1",
+    "datatables-responsive": "~1.0.4",
+    "font-awesome": "~4.2.0",
+    "metisMenu": "~2.0.0",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14",
+    "moment": "~2.10.2"
+  }
+}
