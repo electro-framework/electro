@@ -1,7 +1,8 @@
-vendor
+/lib
+/dist
+/private/vendor
+
 composer.lock
-lib
-dist
 node_modules
 .env
 

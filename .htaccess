@@ -3,8 +3,13 @@
   Options +SymLinksIfOwnerMatch
   RewriteEngine On
 
-  # Deny access to the private folder and to anything starting with a dot.
-  RewriteRule ^(private/|\.) - [F,L,NC]
+  # Deny access to:
+  # - the private folder,
+  # - any path starting with a dot,
+  # - .json and .lock files on the root folder,
+  # - .php files other than index.php on the root folder.
+  RewriteRule ^(private/|\.|\w+\.(json|lock)) - [F,L,NC]
+  RewriteRule ^(?!index)[^./]+\.php - [F,L,NC]
 
   # Serve existing files files.
   RewriteCond %{REQUEST_FILENAME} -f

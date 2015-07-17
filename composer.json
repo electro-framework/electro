@@ -15,23 +15,23 @@
   ],
   "type": "project",
   "config": {
-    "preferred-install": "source"
+    "preferred-install": "source",
+    "vendor-dir": "private/vendor"
   },
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.0",
     "selene-framework/selene-kernel": "^0.4",
-    "selene-framework/matisse": "^0.4"
+    "selene-framework/matisse": "^0.4",
+    "knplabs/packagist-api": "1.*@dev"
   },
   "autoload": {
     "psr-4": {
-      "App\\": "App"
+      "App\\": "private/App",
+      "Modules\\": "private/Modules"
     },
-    "classmap": [
-      "modules"
-    ],
     "files": [
-      "config/env.php"
+      "private/config/env.php"
     ]
   },
   "scripts": {
