@@ -1,6 +1,6 @@
 <?php
 
-use Modules\ModulesManager\Config\ModulesManager;
+use Selene\ApplicaitonBuilder\Config\ApplicationBuilderModule;
 
 ModuleOptions (__DIR__, [
   'templates'  => true,
@@ -12,5 +12,5 @@ ModuleOptions (__DIR__, [
 //  'config'     => [],
 //  'components' => [],
 //  'presets'    => [],
-  'routes'     => ModulesManager::routes (),
+  'routes'     => ApplicationBuilderModule::routes (),
 ]);

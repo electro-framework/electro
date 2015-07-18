@@ -1,9 +1,9 @@
 <?php
-namespace Modules\ModulesManager\Config;
+namespace Selene\ApplicaitonBuilder\Config;
 
-use Modules\ModulesManager\Controllers\Index;
+use Selene\ApplicaitonBuilder\Controllers\Index;
 
-class ModulesManager
+class ApplicationBuilderModule
 {
   const ref = __CLASS__;
 

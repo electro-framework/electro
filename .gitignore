@@ -1,14 +1,24 @@
-/lib
+# Ignore specific folders, relative to the root
+
 /dist
-/private/vendor
+/private/packages
+/private/plugins
+/private/workbench
+/private/storage
+
+# Ignore specific files or folders anywhere
 
 composer.lock
 node_modules
 .env
 
+# Exclude temporary or IDE-related files
+
 .idea
 *.log
 .DS_Store
 Thumbs.db
+
+# Preserve folders with .gitkeep files
 
 !**/.gitkeep

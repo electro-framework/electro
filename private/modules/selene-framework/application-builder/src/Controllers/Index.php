@@ -1,5 +1,5 @@
 <?php
-namespace Modules\ModulesManager\Controllers;
+namespace Selene\ApplicaitonBuilder\Controllers;
 use Packagist\Api\Client;
 use Selene\Controller;
 

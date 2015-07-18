@@ -1,8 +1,8 @@
 <?php
-namespace App\Controllers;
+namespace Selene\Welcome\Controllers;
 use Selene\Controller;
 
-class Welcome extends Controller
+class Index extends Controller
 {
   const ref = __CLASS__;
 
@@ -39,7 +39,7 @@ class Welcome extends Controller
           <p>The <i>express way</i> to start is by opening the Modules Manager and installing some pre-made moules on
              this application.</p>
           <div class="center space">
-            <a class="btn" href="modules-manager">Install Modules</a>
+            <a class="btn" href="application-builder">Install Modules</a>
           </div>
           <p>P.S. Don't forget remove this example module after you've finished.</p>
         </div>

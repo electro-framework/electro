@@ -1,14 +1,16 @@
 <?php
-namespace App\Config;
+namespace Selene\Welcome\Config;
 
-use App\Controllers\Welcome;
+use Selene\Welcome\Controllers\Index;
 
-class App
+class WelcomeModule
 {
   const ref = __CLASS__;
 
   static function routes ()
   {
+    $module = 'selene-framework/welcome';
+
     return [
 
       // Example route implementing a self-contained component-like controller.
@@ -16,7 +18,7 @@ class App
       PageRoute ([
         'title'      => 'Welcome',
         'URI'        => '',           // The root URI
-        'controller' => Welcome::ref,
+        'controller' => Index::ref,
       ]),
 
       // Example route using an automatic controller and an external view.
@@ -24,7 +26,7 @@ class App
       PageRoute ([
         'title'          => 'Example Module',
         'URI'            => 'example',
-        'module'         => 'ExampleModule',
+        'module'         => $module,
         'view'           => 'index.html',
         'autoController' => true,
       ]),

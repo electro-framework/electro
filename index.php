@@ -1,8 +1,6 @@
 <?php
-require "private/vendor/autoload.php";
+require "private/packages/autoload.php";
 
 $application = new Selene\Application();
 
-$__dir = __DIR__ . '/private';
-chdir ($__dir);
-$application->run ($__dir);
+$application->run (__DIR__);

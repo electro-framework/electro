@@ -8,7 +8,6 @@ return [
     'appName'             => 'Your App',
     'title'               => '@ - Your App',
     'defaultURI'          => '/',
-    'routingMapFile'      => 'config/routes.php',
     'autoControllerClass' => 'Selene\\Controller',
     #'favicon'             => '',
     'translation'         => false,
@@ -17,8 +16,8 @@ return [
     'isSessionRequired'   => false,
 
     'modules' => [
-      'ExampleModule',
-      'ModulesManager',
+      'selene-framework/welcome',
+      'selene-framework/application-builder',
     ],
 
   ]
