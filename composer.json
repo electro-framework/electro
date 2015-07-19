@@ -37,10 +37,10 @@
     ]
   },
   "scripts": {
-    "post-install-cmd": [],
+    "post-install-cmd": [
+      "private/packages/bin/selene init"
+    ],
     "post-update-cmd": [],
-    "post-create-project-cmd": [
-      "cp .env.example .env"
-    ]
+    "post-create-project-cmd": []
   }
 }

@@ -1,11 +1,12 @@
 <?php
-use Selene\PresetTasks;
+use Selene\FrameworkTasks;
 
 /**
- * The project's console commands configuration for Selene's task runner.
+ * Your project's console commands for Selene's task runner.
  *
  * @see http://robo.li
  */
-class Tasks extends PresetTasks
+class Tasks extends FrameworkTasks
 {
+  // Add your commands here.
 }
