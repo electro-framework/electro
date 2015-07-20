@@ -46,7 +46,7 @@ class Index extends Controller
 
         <p>You may also want to open these links for example and documentation pages:</p>
         <ul class="list">
-          <Repeat for="{{ !list1}}">
+          <Repeat for="{{ !list1 }}">
             <li><a href="{{ url }}">{{ text }}</a></li>
           </Repeat>
         </ul>
