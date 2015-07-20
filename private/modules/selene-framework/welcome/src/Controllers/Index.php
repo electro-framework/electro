@@ -10,8 +10,8 @@ class Index extends Controller
   {
     return [
       'list1' => [
-        ['url' => 'example', 'text' => 'Example module'],
-        ['url' => '#', 'text' => 'Getting Started'],
+        ['url' => 'example', 'text' => 'Example page'],
+        ['url' => '#', 'text' => 'Getting started'],
         ['url' => '#', 'text' => 'Introduction'],
         ['url' => '#', 'text' => 'Creating your first page'],
       ],

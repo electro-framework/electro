@@ -24,7 +24,7 @@ class WelcomeModule
       // Example route using an automatic controller and an external view.
 
       PageRoute ([
-        'title'          => 'Example Module',
+        'title'          => 'Example Page',
         'URI'            => 'example',
         'module'         => $module,
         'view'           => 'index.html',

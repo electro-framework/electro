@@ -13,7 +13,7 @@ class ApplicationBuilderModule
 
       PageRoute ([
         'title'      => 'Modules Manager Index',
-        'URI'        => 'modules-manager',
+        'URI'        => 'application-builder',
         'controller' => Index::ref,
       ]),
 
