@@ -2,8 +2,8 @@
 
 /dist
 /private/packages
-/private/plugins
-/private/workbench
+/private/plugins/*
+/private/workbench/*
 /private/storage
 
 # Ignore specific files or folders anywhere
