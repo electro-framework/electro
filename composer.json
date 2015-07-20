@@ -38,7 +38,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "private/packages/bin/selene --ansi init"
+      "Selene\\FrameworkTasks::runInit"
     ],
     "post-update-cmd": [],
     "post-create-project-cmd": []
