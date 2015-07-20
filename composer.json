@@ -33,7 +33,7 @@
       "private/config"
     ],
     "files": [
-      "private/config/env.php"
+      "private/bootstrap.php"
     ]
   },
   "scripts": {
