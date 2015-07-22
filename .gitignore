@@ -1,24 +1,26 @@
-# Ignore specific folders, relative to the root
+# Ignore specific folders, relative to the root.
+# Paths ending with * do not exclude .gitkeep files.
 
 /dist
 /private/packages
 /private/plugins/*
 /private/workbench/*
 /private/storage
+/bin/*
 
-# Ignore specific files or folders anywhere
+# Ignore specific files or folders anywhere.
 
 composer.lock
 node_modules
 .env
 
-# Exclude temporary or IDE-related files
+# Exclude temporary or IDE-related files.
 
 .idea
 *.log
 .DS_Store
 Thumbs.db
 
-# Preserve folders with .gitkeep files
+# Preserve folders with .gitkeep files.
 
 !**/.gitkeep

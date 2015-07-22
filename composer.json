@@ -16,14 +16,15 @@
   "type": "project",
   "config": {
     "preferred-install": "source",
-    "vendor-dir": "private/packages"
+    "vendor-dir": "private/packages",
+    "bin-dir": "bin"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
     "php": ">=5.4.0",
-    "selene-framework/selene-kernel": "^0.5",
-    "selene-framework/matisse": "^0.4",
+    "selene-framework/selene-kernel": "^0.5.3",
+    "selene-framework/matisse": "^0.4.1",
     "knplabs/packagist-api": "1.*@dev"
   },
   "autoload": {
