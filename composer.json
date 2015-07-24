@@ -24,8 +24,7 @@
   "require": {
     "php": ">=5.4.0",
     "selene-framework/selene-kernel": "^0.5.3",
-    "selene-framework/matisse": "^0.4.1",
-    "knplabs/packagist-api": "1.*@dev"
+    "selene-framework/matisse": "^0.4.1"
   },
   "autoload": {
     "psr-4": {},
