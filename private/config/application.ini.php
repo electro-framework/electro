@@ -26,6 +26,7 @@ return [
     'configPath'          => 'private/config',
 
     'modules'             => [
+      'selene-framework/core-tasks',
       'selene-framework/welcome',
       'selene-framework/application-builder',
     ],
