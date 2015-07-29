@@ -24,7 +24,7 @@
     "bin-dir": "bin"
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
+  "prefer-stable": false,
   "require": {
     "selene-framework/framework": "dev-master",
     "php": ">=5.4.0"

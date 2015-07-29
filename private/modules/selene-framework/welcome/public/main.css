@@ -1,6 +1,6 @@
 body {
   color: #747c80;
-  background: #F8F8F8;
+  background: #FFF;
   font-weight: 100;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
   padding: 0;
@@ -29,25 +29,17 @@ code {
   padding: 0 5px;
 }
 
-.banner {
-  background: white;
-  padding: 20px 0 50px;
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 50px;
-}
-
-.banner > .title {
-  font-size: 128px;
-  display: inline-block;
-}
-
 .quote {
+  text-align: right;
+  padding-right: 30px;
   font-size: 27px;
   padding-bottom: 10px;
   border-bottom: 1px solid #DDD;
 }
 
 .by {
+  text-align: right;
+  padding-right: 30px;
   margin-top: 10px;
   font-size: 16px;
 }

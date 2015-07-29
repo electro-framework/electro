@@ -22,19 +22,12 @@ class Index extends Controller
   { ?>
     <Master>
 
-      <div class="banner">
-        <div class="title">Selene
-          <div class="quote">rapid web development</div>
-        </div>
-        <div class="by">made by <a href="http://impactwave.com" target="_blank">Impactwave</a></div>
-      </div>
-
       <div class="intro">
 
         <h1>Well done!</h1>
         <p>You have succesfully installed Selene on your computer.</p><br><br>
 
-        <h2>Now what?</h2>
+        <h2>Next steps</h2>
         <div class="text">
           <p>The <i>express way</i> to start is by opening the Modules Manager and installing some pre-made moules on
              this application.</p>
@@ -53,6 +46,8 @@ class Index extends Controller
 
       </div>
 
+      <div class="quote">rapid web development</div>
+      <div class="by">made by <a href="http://impactwave.com" target="_blank">Impactwave</a></div>
     </Master>
 
     <?php
