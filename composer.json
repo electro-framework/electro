@@ -22,6 +22,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
+    "selene-framework/installers": "^1.0.0",
     "selene-framework/selene-kernel": "dev-master",
     "selene-framework/matisse": "^0.4.2",
     "selene-framework/task-runner": "dev-master",
