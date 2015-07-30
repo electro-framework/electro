@@ -27,7 +27,8 @@
   "prefer-stable": false,
   "require": {
     "selene-framework/framework": "dev-master",
-    "php": ">=5.4.0"
+    "php": ">=5.4.0",
+    "selene-framework/admin-module": "dev-master"
   },
   "autoload": {
     "psr-4": {},

@@ -20,6 +20,8 @@ return [
       'selene-framework/core-tasks',
       'selene-framework/welcome',
       'selene-framework/application-builder',
+      'selene-framework/matisse-components',
+      'selene-framework/admin-module'
     ],
 
   ],
