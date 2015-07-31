@@ -26,9 +26,10 @@
   "minimum-stability": "dev",
   "prefer-stable": false,
   "require": {
-    "selene-framework/framework": "dev-master",
     "php": ">=5.4.0",
-    "selene-framework/admin-module": "dev-master"
+    "selene-framework/framework": "dev-master",
+    "selene-framework/admin-module": "dev-master",
+    "robmorgan/phinx": "dev-master"
   },
   "autoload": {
     "psr-4": {},
