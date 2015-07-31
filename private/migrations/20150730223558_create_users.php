@@ -26,7 +26,7 @@ class CreateUsers extends AbstractMigration
       ->addColumn ('active', 'boolean', ['default' => 0])
       ->create ();
     $now = date ('Y-m-d H:i:s');
-    $this->query ("
+    $this->execute ("
       INSERT INTO users (username, registrationDate, role, active)
       VALUES ('admin', '$now', 'developer', 1);
 ");

@@ -21,7 +21,8 @@ return [
       'selene-framework/welcome',
       'selene-framework/application-builder',
       'selene-framework/matisse-components',
-      'selene-framework/admin-module'
+      'selene-framework/admin-module',
+      'selene-framework/migrations',
     ],
 
   ],
