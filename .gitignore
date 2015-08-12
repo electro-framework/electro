@@ -7,12 +7,15 @@
 /private/workbench/*
 /private/storage
 /bin/*
+/lib
+/private/modules/manifest.json
 
 # Ignore specific files or folders anywhere.
 
 composer.lock
 node_modules
 .env
+bower.json
 
 # Exclude temporary or IDE-related files.
 

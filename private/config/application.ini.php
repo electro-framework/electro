@@ -12,7 +12,9 @@ return [
     'autoControllerClass' => 'Selene\Controller',
     'tasksClass'          => 'Tasks',
     'translation'         => false,
-    #'languages'           => [],
+    'languages'         => [
+      'pt:pt-PT:Português:pt_PT|pt_PT.UTF-8|ptg'
+    ],
     'globalSessions'      => false,
     'isSessionRequired'   => false,
 
@@ -21,8 +23,7 @@ return [
       'selene-framework/welcome',
       'selene-framework/application-builder',
       'selene-framework/matisse-components',
-      'selene-framework/admin-module',
-      'selene-framework/migrations',
+      'selene-framework/migrations'
     ],
 
   ],
