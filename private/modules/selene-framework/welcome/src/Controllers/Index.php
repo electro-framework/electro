@@ -1,22 +1,11 @@
 <?php
 namespace Selene\Welcome\Controllers;
 use Selene\Controller;
+use Selene\ModulesApi;
 
 class Index extends Controller
 {
   const ref = __CLASS__;
-
-  protected function viewModel ()
-  {
-    return [
-      'list1' => [
-        ['url' => 'example', 'text' => 'Example page'],
-        ['url' => '#', 'text' => 'Getting started'],
-        ['url' => '#', 'text' => 'Introduction'],
-        ['url' => '#', 'text' => 'Creating your first page'],
-      ],
-    ];
-  }
 
   protected function render ()
   { ?>
@@ -28,6 +17,16 @@ class Index extends Controller
         <p>You have succesfully installed Selene on your computer.</p><br><br>
 
         <h2>Next steps</h2>
+
+        <If the="{{ adminModuleIsInstalled }}" isTrue>
+          <div class="text">
+            <p class="center">The Administration Plugin is installed.</p>
+            <div class="center space">
+              <a class="btn" href="admin/users">Enter Admin</a>
+            </div>
+          </div>
+        </If>
+
         <div class="text">
           <p>The <i>express way</i> to start is by opening the Modules Manager and installing some pre-made moules on
              this application.</p>
@@ -51,5 +50,20 @@ class Index extends Controller
     </Master>
 
     <?php
+  }
+
+  protected function viewModel ()
+  {
+    return [
+      'list1' => [
+        ['url' => 'example', 'text' => 'Example page'],
+        ['url' => '#', 'text' => 'Getting started'],
+        ['url' => '#', 'text' => 'Introduction'],
+        ['url' => '#', 'text' => 'Creating your first page'],
+      ],
+      'default'  => [
+        'adminModuleIsInstalled' => ModulesApi::get ()->isInstalled ('selene-framework/admin-module'),
+      ],
+    ];
   }
 }
