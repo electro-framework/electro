@@ -9,8 +9,14 @@ ModuleOptions (__DIR__, [
 //  'publish'    => [],
 //  'lang'       => true,
 //  'assets'     => [],
-//  'config'     => [],
 //  'components' => [],
 //  'presets'    => [],
   'routes'     => WelcomeModule::routes (),
+  'config'     => [
+    'main' => [
+      'name'    => 'site',              // session cookie name
+      'appName' => 'Your App',
+      'title'   => '@ - Your App',      // @ = page title
+    ],
+  ],
 ]);
