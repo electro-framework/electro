@@ -36,7 +36,7 @@ Upon completing the installation, Composer will ask you:
 Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
 ```
 
-You should type `n` to keep the Git history, so that later on, you can easily merge updates from the `starter-project` into your project (this is optional, of course).
+You should type `y` to remove the Git history.
 
 #### Check if it's working
 
