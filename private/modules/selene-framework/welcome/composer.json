@@ -1,0 +1,26 @@
+{
+  "name": "selene-framework/welcome",
+  "description": "Simple demonstration page for a brand new Selene Framework installation",
+  "type": "selene-template",
+  "keywords": [
+    "template",
+    "selene framework"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Impactwave",
+      "email": "impactwave@impactwave.com",
+      "homepage": "http://impactwave.com"
+    },
+    {
+      "name": "Cláudio Silva",
+      "email": "claudio.silva@impactwave.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Selene\\Welcome\\": "src"
+    }
+  }
+}

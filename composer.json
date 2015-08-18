@@ -27,14 +27,13 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.4.0",
-    "selene-framework/framework": "dev-master"
+    "selene-framework/framework": "dev-master",
+    "selene-framework/admin-module": "dev-master"
   },
   "autoload": {
-    "psr-4": {},
-    "classmap": [
-      "private/modules",
-      "private/config"
-    ],
+    "psr-4": {
+      "Selene\\Welcome\\": "private/modules/selene-framework/welcome/src"
+    },
     "files": [
       "private/bootstrap.php"
     ]
