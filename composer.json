@@ -27,19 +27,25 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.4.0",
+    "wikimedia/composer-merge-plugin": "dev-master",
     "selene-framework/framework": "dev-master"
   },
+  "extra": {
+    "merge-plugin": {
+      "include": [
+        "composer.root.json",
+        "private/modules/*/*/composer.json"
+      ],
+      "recurse": false,
+      "merge-extra": false
+    }
+  },
   "autoload": {
-    "psr-4": {
-      "Selene\\Welcome\\": "private/modules/selene-framework/welcome/src"
-    },
-    "files": [
-      "private/bootstrap.php"
-    ]
+    "files": ["private/bootstrap.php"]
   },
   "scripts": {
     "post-install-cmd": [
-      "Selene\\FrameworkTasks::runInit"
+      "Selene\\CoreTasks::runInit"
     ],
     "post-update-cmd": [],
     "post-create-project-cmd": []
