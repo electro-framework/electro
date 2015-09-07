@@ -27,8 +27,6 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.4.0",
-    "wikimedia/composer-merge-plugin": "1.3.x-dev",
-    "koala-framework/composer-extra-assets": "dev-master",
     "selene-framework/framework": "dev-master"
   },
   "extra": {
@@ -39,8 +37,6 @@
       "recurse": false,
       "replace": false,
       "merge-extra": true
-    },
-    "require-bower": {
     }
   },
   "autoload": {
