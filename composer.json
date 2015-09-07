@@ -48,7 +48,8 @@
     "post-install-cmd": [
       "Selene\\CoreTasks::runInit"
     ],
-    "post-update-cmd": [],
+    "post-update-cmd": [
+    ],
     "post-create-project-cmd": []
   }
 }
