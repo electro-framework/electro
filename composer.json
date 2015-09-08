@@ -1,8 +1,7 @@
 {
   "name": "selene-framework/selene",
-  "description": "The Selene Framework standard base application",
+  "description": "The Selene Framework",
   "keywords": [
-    "application",
     "selene framework"
   ],
   "license": "MIT",
