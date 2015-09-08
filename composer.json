@@ -1,6 +1,6 @@
 {
-  "name": "selene-framework/starter-project",
-  "description": "Selene Framework Starter Project",
+  "name": "selene-framework/selene",
+  "description": "The Selene Framework standard base application",
   "keywords": [
     "application",
     "selene framework"
