@@ -5,7 +5,7 @@ use Selenia\Welcome\Config\WelcomeModule;
 ModuleOptions (__DIR__, [
   'templates'  => true,
   'views'      => true,
-  'public'     => 'modules/welcome',
+  'public'     => 'modules/selenia/welcome',
 //  'publish'    => [],
 //  'lang'       => true,
 //  'assets'     => [],
