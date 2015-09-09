@@ -1,4 +1,4 @@
-# Selenia Framework 
+# Selenia Framework
 
 > Selenia is a web framework for the rapid development of web applications and websites using the PHP language.
 
@@ -75,4 +75,4 @@ If you discover a security vulnerability, please contact the main developer dire
 
 The Selenia Framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-**Selenia Framework** - Copyright &copy; Impactwave, Lda.
+**Selenia Framework** - Copyright &copy; 2015 Impactwave, Lda.
