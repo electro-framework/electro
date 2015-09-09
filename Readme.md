@@ -46,11 +46,13 @@ For example, to create an empty Git repository, type:
 git init
 ```
 
-#### Follow the Installation Wizard
+#### Follow the Configuration Wizard
 
-At the end of the installation procedure, the Installation Wizard automatically runs to configure the newly created project.
+At the end of the installation procedure, the Configuration Wizard automatically runs to perform the final installation steps.
 
-Just answer the questions asked to customize the application to your needs.
+The Wizard scaffolds some of the application's directory structure and then it proceeds to setting up the application's configuration.
+
+Answer the Wizard's questions to customize the application to your needs.
 
 #### Check if it's working
 
