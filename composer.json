@@ -1,8 +1,9 @@
 {
-  "name": "selene-framework/selene",
-  "description": "The Selene Framework",
+  "name": "selenia/selenia",
+  "description": "The Selenia PHP framework ",
   "keywords": [
-    "selene framework"
+    "selenia",
+    "framework"
   ],
   "license": "MIT",
   "authors": [
@@ -26,7 +27,7 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.4.0",
-    "selene-framework/framework": "dev-master"
+    "selenia/framework": "dev-master"
   },
   "extra": {
     "merge-plugin": {
@@ -45,7 +46,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "Selene\\CoreTasks::runInit"
+      "Selenia\\CoreTasks::runInit"
     ],
     "post-update-cmd": [
     ],

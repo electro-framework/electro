@@ -1,6 +1,6 @@
 <?php
 
-use Selene\Welcome\Config\WelcomeModule;
+use Selenia\Welcome\Config\WelcomeModule;
 
 ModuleOptions (__DIR__, [
   'templates'  => true,

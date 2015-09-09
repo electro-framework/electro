@@ -13,7 +13,7 @@ return [
 //    'name'                => 'site',              // session cookie name
 //    'appName'             => 'Your App',
 //    'title'               => '@ - Your App',      // @ = page title
-//    'autoControllerClass' => 'Selene\Controller',
+//    'autoControllerClass' => 'Selenia\Controller',
 //    'subApplications'     => [],
 
     // URLs:

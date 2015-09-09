@@ -1,10 +1,10 @@
 {
-  "name": "selene-framework/welcome",
-  "description": "Simple demonstration page for a brand new Selene Framework installation",
-  "type": "selene-template",
+  "name": "selenia/welcome",
+  "description": "Simple demonstration page for a brand new Selenia framework installation",
+  "type": "selenia-template",
   "keywords": [
     "template",
-    "selene framework"
+    "selenia"
   ],
   "license": "MIT",
   "authors": [
@@ -20,7 +20,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Selene\\Welcome\\": "src"
+      "Selenia\\Welcome\\": "src"
     }
   }
 }

@@ -1,7 +1,7 @@
 <?php
-namespace Selene\Welcome\Config;
+namespace Selenia\Welcome\Config;
 
-use Selene\Welcome\Controllers\Index;
+use Selenia\Welcome\Controllers\Index;
 
 class WelcomeModule
 {
@@ -9,7 +9,7 @@ class WelcomeModule
 
   static function routes ()
   {
-    $module = 'selene-framework/welcome';
+    $module = 'selenia/welcome';
 
     return [
 

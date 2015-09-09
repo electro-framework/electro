@@ -1,6 +1,6 @@
 <?php
 require "private/packages/autoload.php";
 
-$application = new Selene\Application();
+$application = new Selenia\Application();
 
 $application->run (__DIR__);

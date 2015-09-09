@@ -1,7 +1,7 @@
 <?php
-namespace Selene\Welcome\Controllers;
-use Selene\Controller;
-use Selene\ModulesApi;
+namespace Selenia\Welcome\Controllers;
+use Selenia\Controller;
+use Selenia\ModulesApi;
 
 class Index extends Controller
 {
@@ -14,7 +14,7 @@ class Index extends Controller
       <div class="intro">
 
         <h1>Well done!</h1>
-        <p>You have succesfully installed Selene on your computer.</p><br><br>
+        <p>You have succesfully installed Selenia on your computer.</p><br><br>
 
         <h2>Next steps</h2>
 
@@ -62,7 +62,7 @@ class Index extends Controller
         ['url' => '#', 'text' => 'Creating your first page'],
       ],
       'default'  => [
-        'adminModuleIsInstalled' => ModulesApi::get ()->isInstalled ('selene-framework/admin-module'),
+        'adminModuleIsInstalled' => ModulesApi::get ()->isInstalled ('selenia/admin-interface'),
       ],
     ];
   }

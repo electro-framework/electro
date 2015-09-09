@@ -1,8 +1,8 @@
-# Selene Framework 
+# Selenia Framework 
 
-> Selene is a web framework for the rapid development of web applications and websites using the PHP language.
+> Selenia is a web framework for the rapid development of web applications and websites using the PHP language.
 
-**This repository provides a standard installation of the framework. Use it as a starting point for developing a project based on Selene.**
+**This repository provides a standard installation of the framework. Use it as a starting point for developing a project based on Selenia.**
 
 ## Installation
 
@@ -18,18 +18,18 @@
 
 #### Install Composer
 
-Selene utilises [Composer](http://getcomposer.org) to manage its dependencies. So, before using Selene, you will need to make sure you have Composer installed on your machine.
+Selenia utilises [Composer](http://getcomposer.org) to manage its dependencies. So, before using Selenia, you will need to make sure you have Composer installed on your machine.
 
 #### Install the project
 
 On the parent folder where the project folder will be created, issue the `composer create-project` command on your terminal.
 
-For example, this will install a working Selene prototype project into the `your-project-name` folder:
+For example, this will install a working Selenia prototype project into the `your-project-name` folder:
 
 
 ```shell
 cd parent-folder
-composer create-project -s dev selene-framework/selene your-project-name
+composer create-project -s dev selenia-framework/selenia your-project-name
 ```
 
 Upon completing the installation, Composer will ask you:
@@ -58,10 +58,10 @@ You should see a welcome page.
 
 #### Developing
 
-Besides using the Composer commands to install/uninstall/update PHP packages and Selene plugins, you can also use the Selene Task Runner. Type:
+Besides using the Composer commands to install/uninstall/update PHP packages and Selenia plugins, you can also use the Selenia Task Runner. Type:
 
 ```shell
-selene
+selenia
 ```
 
 You'll get a list of available commands.  
@@ -73,6 +73,6 @@ If you discover a security vulnerability, please contact the main developer dire
 
 ## License
 
-The Selene Framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Selenia Framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-**Selene Framework** - Copyright &copy; Impactwave, Lda.
+**Selenia Framework** - Copyright &copy; Impactwave, Lda.
