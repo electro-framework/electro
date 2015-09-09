@@ -46,6 +46,12 @@ For example, to create an empty Git repository, type:
 git init
 ```
 
+#### Follow the Installation Wizard
+
+At the end of the installation procedure, the Installation Wizard automatically runs to configure the newly created project.
+
+Just answer the questions asked to customize the application to your needs.
+
 #### Check if it's working
 
 After installation, the project should be ready to run.
@@ -58,7 +64,9 @@ You should see a welcome page.
 
 #### Developing
 
-Besides using the Composer commands to install/uninstall/update PHP packages and Selenia plugins, you can also use the Selenia Task Runner. Type:
+Besides using the Composer commands to install/uninstall/update PHP packages and Selenia plugins, you can also use the Selenia CLI (Command-Line Interface).
+
+Type:
 
 ```shell
 selenia
@@ -67,9 +75,15 @@ selenia
 You'll get a list of available commands.
 Refer to the framework documentation for an explanation of each available command.
 
+## Contributing
+
+Selenia is an open source, community-driven project. We welcome your contribution, either by submitting [pull-requests](https://github.com/selenia-framework/selenia/pulls) or by reporting issues on the [issue tracker](https://github.com/selenia-framework/selenia/issues).
+
+We don't have a formal contribution guide at this time. We're working on that.
+
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please contact the main developer directly at claudio.silva@impactwave.com.
+If you have found a security vulnerability, please contact the main developer directly at claudio.silva@impactwave.com.
 All security vulnerabilities will be promptly addressed.
 
 ## License
