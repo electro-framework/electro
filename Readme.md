@@ -29,7 +29,7 @@ For example, this will install a working Selenia prototype project into the `you
 
 ```shell
 cd parent-folder
-composer create-project -s dev selenia-framework/selenia your-project-name
+composer create-project -s dev selenia/selenia your-project-name
 ```
 
 Upon completing the installation, Composer will ask you:
@@ -64,15 +64,16 @@ Besides using the Composer commands to install/uninstall/update PHP packages and
 selenia
 ```
 
-You'll get a list of available commands.  
+You'll get a list of available commands.
 Refer to the framework documentation for an explanation of each available command.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please contact the main developer directly at claudio.silva@impactwave.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability, please contact the main developer directly at claudio.silva@impactwave.com.
+All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Selenia Framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Selenia framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-**Selenia Framework** - Copyright &copy; 2015 Impactwave, Lda.
+**Selenia framework** - Copyright &copy; 2015 Impactwave, Lda.
