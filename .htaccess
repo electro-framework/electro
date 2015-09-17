@@ -3,6 +3,10 @@
   Options +SymLinksIfOwnerMatch
   RewriteEngine On
 
+  # FIX: php-cgi under Apache does not pass HTTP Basic user/pass to PHP by default
+  RewriteCond %{HTTP:Authorization} ^(.+)$
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
   # Deny access to:
   # - the private folder,
   # - any path starting with a dot,
