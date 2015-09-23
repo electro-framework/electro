@@ -35,7 +35,7 @@ return [
 //    'globalSessions'      => false,     // share the session between the application and its sub-applications?
 //    'requireLogin'        => false,     // require login for this application?
 
-    // For use with the admin-module:
+    // For use with the admin-interface:
 
 //    'homeIcon'            => 'fa fa-home',  // CSS class list, for breadcrumbs
 //    'homeTitle'           => 'Home',        // for breadcrumbs
