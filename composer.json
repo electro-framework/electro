@@ -1,6 +1,6 @@
 {
   "name": "selenia/selenia",
-  "description": "The Selenia PHP framework ",
+  "description": "The Selenia PHP framework",
   "keywords": [
     "selenia",
     "framework"
@@ -26,15 +26,16 @@
   "minimum-stability": "dev",
   "prefer-stable": false,
   "require": {
-    "php": ">=5.4.0",
-    "selenia/framework": "dev-master"
+    "php": ">=5.4",
+    "selenia/framework": "1.x-dev"
   },
   "extra": {
     "merge-plugin": {
       "include": [
+        "private/packages/selenia/framework/subsystems/*/composer.json",
         "private/modules/*/*/composer.json"
       ],
-      "recurse": false,
+      "recurse": true,
       "replace": false,
       "merge-extra": true
     }
