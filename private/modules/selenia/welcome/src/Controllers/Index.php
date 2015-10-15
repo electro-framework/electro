@@ -1,6 +1,6 @@
 <?php
 namespace Selenia\Welcome\Controllers;
-use Selenia\Controller;
+use Selenia\Http\Controllers\Controller;
 use Selenia\ModulesApi;
 
 class Index extends Controller
