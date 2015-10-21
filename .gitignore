@@ -8,7 +8,7 @@
 /private/storage
 /bin/*
 /lib
-/private/modules/manifest.json
+/private/modules/registry.json
 
 # Ignore specific files or folders anywhere.
 
