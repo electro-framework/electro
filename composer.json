@@ -27,7 +27,8 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.4",
-    "selenia/framework": "1.x-dev"
+    "selenia/framework": "1.x-dev",
+    "selenia-plugins/admin-interface": "dev-master"
   },
   "extra": {
     "merge-plugin": {

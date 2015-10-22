@@ -1,5 +1,5 @@
 {
-  "name": "selenia/welcome",
+  "name": "selenia-templates/welcome",
   "description": "Simple demonstration page for a brand new Selenia framework installation",
   "type": "selenia-template",
   "keywords": [
@@ -20,7 +20,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Selenia\\Welcome\\": "src"
+      "App\\Welcome\\": "Welcome"
     }
   }
 }

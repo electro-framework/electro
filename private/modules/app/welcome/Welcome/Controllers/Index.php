@@ -1,5 +1,5 @@
 <?php
-namespace Selenia\Welcome\Controllers;
+namespace App\Welcome\Controllers;
 use Selenia\Http\Controllers\Controller;
 use Selenia\ModulesApi;
 

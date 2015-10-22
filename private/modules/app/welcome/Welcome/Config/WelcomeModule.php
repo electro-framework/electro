@@ -1,7 +1,7 @@
 <?php
-namespace Selenia\Welcome\Config;
+namespace App\Welcome\Config;
 
-use Selenia\Welcome\Controllers\Index;
+use App\Welcome\Controllers\Index;
 
 class WelcomeModule
 {
