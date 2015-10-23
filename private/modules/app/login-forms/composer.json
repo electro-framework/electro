@@ -1,0 +1,40 @@
+{
+  "name": "selenia-templates/login-forms",
+  "description": "A set of forms for user login, signup, password reset and email verification",
+  "type": "selenia-template",
+  "keywords": [
+    "template",
+    "selenia"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Impactwave",
+      "email": "impactwave@impactwave.com",
+      "homepage": "http://impactwave.com"
+    },
+    {
+      "name": "Cláudio Silva",
+      "email": "claudio.silva@impactwave.com"
+    }
+  ],
+  "homepage": "https://github.com/selenia-templates/login-forms",
+  "require": {
+    "php": ">=5.4.0",
+    "selenia/installers": "^1.0.0",
+    "selenia-plugins/matisse-widgets": "dev-master"
+  },
+  "extra": {
+    "bower": {
+      "require": {
+        "bootstrap": "~3.3.4",
+        "font-awesome": "~4.2.0"
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\LoginForms\\": "LoginForms/"
+    }
+  }
+}

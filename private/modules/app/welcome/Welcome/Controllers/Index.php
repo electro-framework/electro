@@ -6,6 +6,16 @@ use Selenia\ModulesApi;
 class Index extends Controller
 {
   const ref = __CLASS__;
+  /**
+   * @var ModulesApi
+   */
+  private $modulesApi;
+
+  function __construct (ModulesApi $modulesApi)
+  {
+    $this->modulesApi = $modulesApi;
+  }
+
 
   protected function render ()
   { ?>
@@ -62,7 +72,7 @@ class Index extends Controller
         ['url' => '#', 'text' => 'Creating your first page'],
       ],
       'default' => [
-        'adminModuleIsInstalled' => ModulesApi::get ()->isInstalled ('selenia-plugins/admin-interface'),
+        'adminModuleIsInstalled' => $this->modulesApi->isInstalled ('selenia-plugins/admin-interface'),
       ],
     ];
   }

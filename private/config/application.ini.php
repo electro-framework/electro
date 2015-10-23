@@ -25,10 +25,9 @@ return [
     // Localization:
 
 //    'translation'         => false,               // enable translations; default language is selected on .env
-//    'languages'           => [
-//      'en:en-US:English:en_US|en_US.UTF-8|us',
-//      'pt:pt-PT:Português:pt_PT|pt_PT.UTF-8|ptg',
-//    ],
+    'languages'           => [                    // Ex: ['en', 'pt'] or ['en-US', 'pt-PT']
+      'en', 'pt',
+    ],
 
     // Sessions:
 

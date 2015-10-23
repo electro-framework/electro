@@ -1,9 +1,9 @@
 <?php
 namespace App\Welcome;
 
+use App\Welcome\Config\WelcomeModule;
 use Selenia\Interfaces\InjectorInterface;
 use Selenia\Interfaces\ServiceProviderInterface;
-use App\Welcome\Config\WelcomeModule;
 
 class WelcomeServices implements ServiceProviderInterface
 {
@@ -11,17 +11,17 @@ class WelcomeServices implements ServiceProviderInterface
 
   function register (InjectorInterface $injector)
   {
-    ModuleOptions (__DIR__, [
-      'templates'  => true,
-      'views'      => true,
-      'public'     => 'modules/selenia/welcome',
+    ModuleOptions (dirname (__DIR__), [
+      'templates' => true,
+      'views'     => true,
+      'public'    => 'modules/selenia/welcome',
       //  'publish'    => [],
       //  'lang'       => true,
       //  'assets'     => [],
       //  'components' => [],
       //  'presets'    => [],
-      'routes'     => WelcomeModule::routes (),
-      'config'     => [
+      'routes'    => WelcomeModule::routes (),
+      'config'    => [
         'main' => [
           'name'    => 'site',              // session cookie name
           'appName' => 'Your App',

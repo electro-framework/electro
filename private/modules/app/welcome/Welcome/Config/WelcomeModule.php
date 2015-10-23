@@ -9,7 +9,7 @@ class WelcomeModule
 
   static function routes ()
   {
-    $module = 'selenia/welcome';
+    $module = 'app/welcome';
 
     return [
 
