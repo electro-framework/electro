@@ -3,8 +3,9 @@ namespace App\LoginForms\Controllers;
 
 use Selenia\DataObject;
 use Selenia\Http\Controllers\Controller;
+use Selenia\Plugins\AdminInterface\Controllers\AdminController;
 
-class Login extends Controller
+class Login extends AdminController
 {
   public function action_submit (DataObject $data = null, $param = null)
   {
@@ -16,12 +17,10 @@ class Login extends Controller
 
   protected function render ()
   { ?>
-    <Admin>
+    <BaseAdmin>
       <script>
         document.body.className = "login-page";
       </script>
-
-      <input type="hidden" name="_prevPost" value="{{ !controller.prevPost }}"/>
 
       {{ !page.statusMessage }}
 
@@ -52,7 +51,7 @@ class Login extends Controller
           </div>
         </div>
       </div>
-    </Admin>
+    </BaseAdmin>
     <?php
   }
 
