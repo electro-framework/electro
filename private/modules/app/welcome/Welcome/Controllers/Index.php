@@ -1,17 +1,17 @@
 <?php
 namespace App\Welcome\Controllers;
-use Selenia\Assembly\ModulesApi;
+use Selenia\Assembly\ModulesManager;
 use Selenia\Http\Controllers\Controller;
 
 class Index extends Controller
 {
   const ref = __CLASS__;
   /**
-   * @var ModulesApi
+   * @var ModulesManager
    */
   private $modulesApi;
 
-  function __construct (ModulesApi $modulesApi)
+  function __construct (ModulesManager $modulesApi)
   {
     $this->modulesApi = $modulesApi;
   }
