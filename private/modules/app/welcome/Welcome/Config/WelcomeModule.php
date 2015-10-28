@@ -1,5 +1,5 @@
 <?php
-namespace App\Welcome;
+namespace App\Welcome\Config;
 
 use App\Welcome\Controllers\Index;
 use Selenia\Core\Assembly\Services\ModuleServices;

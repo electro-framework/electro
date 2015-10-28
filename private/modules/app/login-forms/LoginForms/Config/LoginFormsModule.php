@@ -1,5 +1,5 @@
 <?php
-namespace App\LoginForms;
+namespace App\LoginForms\Config;
 
 use App\LoginForms\Controllers\Login;
 use Selenia\Core\Assembly\Services\ModuleServices;
