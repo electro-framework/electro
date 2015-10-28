@@ -1,19 +1,19 @@
 <?php
 namespace App\Welcome\Controllers;
-use Selenia\Core\Assembly\Services\ModulesManager;
+use Selenia\Core\Assembly\Services\ModulesRegistry;
 use Selenia\Http\Controllers\Controller;
 
 class Index extends Controller
 {
   const ref = __CLASS__;
   /**
-   * @var ModulesManager
+   * @var ModulesRegistry
    */
-  private $modulesApi;
+  private $modulesRegistry;
 
-  function __construct (ModulesManager $modulesApi)
+  function __construct (ModulesRegistry $registry)
   {
-    $this->modulesApi = $modulesApi;
+    $this->modulesRegistry = $registry;
   }
 
 
@@ -47,7 +47,7 @@ class Index extends Controller
   {
     return [
       'default' => [
-        'adminModuleIsInstalled' => $this->modulesApi->isInstalled ('selenia-plugins/admin-interface'),
+        'adminModuleIsInstalled' => $this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface'),
       ],
     ];
   }

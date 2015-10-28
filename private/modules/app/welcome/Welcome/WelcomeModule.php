@@ -1,12 +1,12 @@
 <?php
-namespace App\Welcome\Config;
+namespace App\Welcome;
 
 use App\Welcome\Controllers\Index;
+use Selenia\Core\Assembly\Services\ModuleServices;
+use Selenia\Interfaces\ModuleInterface;
 
-class WelcomeModule
+class WelcomeModule implements ModuleInterface
 {
-  const ref = __CLASS__;
-
   static function routes ()
   {
     $module = 'app/welcome';
@@ -33,4 +33,23 @@ class WelcomeModule
 
     ];
   }
+
+  function boot () { }
+
+  function configure (ModuleServices $module)
+  {
+    $module
+      ->publishPublicDirAs ('modules/selenia/welcome')
+      ->provideTemplates ()
+      ->provideViews ()
+      ->registerRoutes (self::routes ())
+      ->setDefaultConfig ([
+        'main' => [
+          'name'    => 'site',              // session cookie name
+          'appName' => 'Your App',
+          'title'   => '@ - Your App',      // @ = page title
+        ],
+      ]);
+  }
+
 }
