@@ -2,36 +2,34 @@
 namespace App\LoginForms;
 
 use App\LoginForms\Config\LoginFormsModule;
-use Selenia\Interfaces\InjectorInterface;
-use Selenia\Interfaces\ServiceProviderInterface;
+use Selenia\Core\Assembly\Services\ModuleServices;
+use Selenia\Interfaces\ModuleInterface;
 
-class LoginFormsServices implements ServiceProviderInterface
+class LoginFormsServices implements ModuleInterface
 {
   function boot () { }
 
-  function register (InjectorInterface $injector)
+  function configure (ModuleServices $module)
   {
-    ModuleOptions (dirname (__DIR__), [
-      'lang'   => true,
-      'config' => [
+    $module
+      ->provideTranslations ()
+      ->setDefaultConfig ([
         'main'            => [
           'translation' => true,
         ],
         'app/login-forms' => [
           'prefix' => 'admin',
         ],
-      ],
-    ], function () {
-      return [
-        'routes' => [
+      ])
+      ->onPostConfig (function () use ($module) {
+        $module->registerRoutes ([
           RouteGroup ([
             'prefix' => LoginFormsModule::settings ()['prefix'],
             'routes' => LoginFormsModule::routes (),
             'onMenu' => false,
           ]),
-        ],
-      ];
-    });
+        ]);
+      });
   }
 
 }

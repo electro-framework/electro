@@ -1,6 +1,6 @@
 <?php
 namespace App\Welcome\Controllers;
-use Selenia\Assembly\ModulesManager;
+use Selenia\Core\Assembly\Services\ModulesManager;
 use Selenia\Http\Controllers\Controller;
 
 class Index extends Controller

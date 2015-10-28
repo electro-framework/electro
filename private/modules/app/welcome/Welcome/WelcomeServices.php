@@ -2,33 +2,26 @@
 namespace App\Welcome;
 
 use App\Welcome\Config\WelcomeModule;
-use Selenia\Interfaces\InjectorInterface;
-use Selenia\Interfaces\ServiceProviderInterface;
+use Selenia\Core\Assembly\Services\ModuleServices;
+use Selenia\Interfaces\ModuleInterface;
 
-class WelcomeServices implements ServiceProviderInterface
+class WelcomeServices implements ModuleInterface
 {
   function boot () { }
 
-  function register (InjectorInterface $injector)
+  function configure (ModuleServices $module)
   {
-    ModuleOptions (dirname (__DIR__), [
-      'templates' => true,
-      'views'     => true,
-      'public'    => 'modules/selenia/welcome',
-      //  'publish'    => [],
-      //  'lang'       => true,
-      //  'assets'     => [],
-      //  'components' => [],
-      //  'presets'    => [],
-      'routes'    => WelcomeModule::routes (),
-      'config'    => [
+    $module
+      ->publishPublicDirAs('modules/selenia/welcome')
+      ->provideTemplates()
+      ->provideViews()
+      ->registerRoutes(WelcomeModule::routes ())
+      ->setDefaultConfig([
         'main' => [
           'name'    => 'site',              // session cookie name
           'appName' => 'Your App',
           'title'   => '@ - Your App',      // @ = page title
         ],
-      ],
-    ]);
+      ]);
   }
-
 }
