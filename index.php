@@ -1,6 +1,7 @@
 <?php
 use Selenia\Core\DependencyInjection\Injector;
-use Selenia\WebServer\WebServer;
+use Selenia\WebApplication\WebApplication;
+
 /*
  * Temporarily uncomment the following line for troubleshooting on restricted hosting environments.
  * It enables error logging to a file the project's root directory.
@@ -12,8 +13,8 @@ use Selenia\WebServer\WebServer;
 require "private/packages/autoload.php";
 
 /*
- * Run the framework's HTTP subsystem, which then runs the web application.
+ * Launch the application on HTTP request handling mode.
  * You can customize the Dependency Injector the framework uses by changing the fist argument of
  * the class constructor below.
  */
-(new WebServer (new Injector))->run (__DIR__);
+(new WebApplication (new Injector))->run (__DIR__);
