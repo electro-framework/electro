@@ -1,13 +1,11 @@
 <?php
 namespace App\LoginForms\Controllers;
 
-use Selenia\DataObject;
-use Selenia\Http\Controllers\Controller;
 use Selenia\Plugins\AdminInterface\Controllers\AdminController;
 
 class Login extends AdminController
 {
-  public function action_submit (DataObject $data = null, $param = null)
+  public function action_submit ($param = null)
   {
   }
 
@@ -22,7 +20,7 @@ class Login extends AdminController
         document.body.className = "login-page";
       </script>
 
-      {{ !page.statusMessage }}
+      {{ !controller.statusMessage }}
 
       <div class="login-box">
         <!--
