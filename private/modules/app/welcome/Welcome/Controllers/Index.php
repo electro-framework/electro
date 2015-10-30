@@ -2,6 +2,7 @@
 namespace App\Welcome\Controllers;
 use Selenia\Core\Assembly\Services\ModulesRegistry;
 use Selenia\Http\Controllers\Controller;
+use Selenia\Matisse\DataRecord;
 
 class Index extends Controller
 {
@@ -11,7 +12,7 @@ class Index extends Controller
    */
   private $modulesRegistry;
 
-  function __construct (ModulesRegistry $registry)
+  function inject (ModulesRegistry $registry)
   {
     $this->modulesRegistry = $registry;
   }
@@ -47,7 +48,7 @@ class Index extends Controller
   {
     return [
       'default' => [
-        'adminModuleIsInstalled' => $this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface'),
+        'adminModuleIsInstalled' => new DataRecord ($this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface')),
       ],
     ];
   }
