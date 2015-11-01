@@ -20,7 +20,7 @@ class Login extends AdminController
         document.body.className = "login-page";
       </script>
 
-      {{ %controller.statusMessage }}
+      {{ .statusMessage }}
 
       <div class="login-box">
         <!--
@@ -29,7 +29,7 @@ class Login extends AdminController
         </div>
         -->
         <div class="login-box-body">
-          <h1 class="text-info">{{ %application.appName }}</h1>
+          <h1 class="text-info">{{ app.appName }}</h1>
           <h4>$LOGIN_PROMPT</h4>
           <div class="form-group has-feedback">
             <input name="username" type="text" class="form-control" placeholder="$LOGIN_USERNAME" autofocus/>
