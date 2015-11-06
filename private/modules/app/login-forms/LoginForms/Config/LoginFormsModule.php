@@ -17,6 +17,7 @@ class LoginFormsModule implements ModuleInterface
             'onMenu'     => false,
             'title'      => '$LOGIN_PROMPT',
             'URI'        => 'login',
+            'isIndex'    => true,
             'controller' => Login::ref (),
           ]),
         ],
@@ -42,7 +43,7 @@ class LoginFormsModule implements ModuleInterface
           'translation' => true,
         ],
         'app/login-forms' => [
-          'prefix' => 'admin',
+          'prefix' => '',
         ],
       ])
       ->onPostConfig (function () use ($module) {
