@@ -2,10 +2,10 @@
 namespace App\LoginForms\Controllers;
 
 use Selenia\Authentication\Exceptions\AuthenticationException;
-use Selenia\Http\Controllers\Controller;
+use Selenia\Http\Components\PageComponent;
 use Selenia\Interfaces\UserInterface;
 
-class Login extends Controller
+class Login extends PageComponent
 {
   public function action_login ($param = null)
   {

@@ -1,10 +1,10 @@
 <?php
 namespace App\Welcome\Controllers;
 use Selenia\Core\Assembly\Services\ModulesRegistry;
-use Selenia\Http\Controllers\Controller;
+use Selenia\Http\Components\PageComponent;
 use Selenia\Matisse\DataRecord;
 
-class Index extends Controller
+class Index extends PageComponent
 {
   const ref = __CLASS__;
   /**
