@@ -6,7 +6,6 @@ use Selenia\Matisse\DataRecord;
 
 class Index extends PageComponent
 {
-  const ref = __CLASS__;
   /**
    * @var ModulesRegistry
    */

@@ -4,51 +4,51 @@ namespace App\LoginForms\Config;
 use App\LoginForms\Controllers\Login;
 use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Interfaces\ModuleInterface;
+use Selenia\Interfaces\RoutableInterface;
+use Selenia\Interfaces\RouterInterface;
+use Selenia\Routing\Navigation;
 
-class LoginFormsModule implements ModuleInterface
+class LoginFormsModule implements ModuleInterface, RoutableInterface
 {
-  static function routes ()
+  /** @var LoginFormsSettings */
+  private $settings;
+
+  function __invoke (RouterInterface $router)
   {
-    return [
-      RouteGroup ([
-        'prefix' => self::settings ()['prefix'],
-        'routes' => [
-          PageRoute ([
-            'onMenu'     => false,
-            'title'      => '$LOGIN_PROMPT',
-            'URI'        => 'login',
-            'isIndex'    => true,
-            'controller' => Login::ref (),
-          ]),
-        ],
-        'onMenu' => false,
-      ]),
-    ];
+    return $router->matchPrefix ($this->settings->urlPrefix (),
+      function (RouterInterface $router) {
+        $router
+          ->dispatch ([
+            'login' => Login::class,
+          ]);
+      });
   }
 
-  static function settings ()
+  function configure (ModuleServices $module, LoginFormsSettings $settings)
   {
-    global $application;
-    return get ($application->config, 'app/login-forms', []);
-  }
-
-  function boot () { }
-
-  function configure (ModuleServices $module)
-  {
+    $this->settings = $settings;
     $module
       ->provideTranslations ()
       ->setDefaultConfig ([
-        'main'            => [
+        'main' => [
           'translation' => true,
-        ],
-        'app/login-forms' => [
-          'prefix' => '',
         ],
       ])
       ->onPostConfig (function () use ($module) {
-        $module->registerRoutes (self::routes ());
+        $module
+          ->provideNavigation ([$this, 'navigation'])
+          ->registerRouter ($this);
       });
+  }
+
+  private function navigation ()
+  {
+    $prefix = $this->settings->urlPrefix ();
+    return [
+      "$prefix/login" => (new Navigation)
+        ->title ('$LOGIN_PROMPT')
+        ->visible (N),
+    ];
   }
 
 }
