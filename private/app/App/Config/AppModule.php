@@ -9,7 +9,7 @@ use Selenia\FileServer\Middleware\FileServerMiddleware;
 use Selenia\Http\Middleware\CompressionMiddleware;
 use Selenia\Http\Middleware\CsrfMiddleware;
 use Selenia\HttpMiddleware\Middleware\URINotFoundMiddleware;
-use Selenia\Interfaces\MiddlewareStackInterface;
+use Selenia\Interfaces\Http\MiddlewareStackInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;

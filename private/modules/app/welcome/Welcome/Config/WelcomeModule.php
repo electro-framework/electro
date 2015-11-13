@@ -4,8 +4,8 @@ namespace App\Welcome\Config;
 use App\Welcome\Controllers\Index;
 use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Http\Components\PageComponent;
+use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
-use Selenia\Interfaces\RouterInterface;
 
 class WelcomeModule implements ModuleInterface
 {

@@ -3,9 +3,9 @@ namespace App\LoginForms\Config;
 
 use App\LoginForms\Controllers\Login;
 use Selenia\Core\Assembly\Services\ModuleServices;
+use Selenia\Interfaces\Http\RoutableInterface;
+use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
-use Selenia\Interfaces\RoutableInterface;
-use Selenia\Interfaces\RouterInterface;
 use Selenia\Routing\Navigation;
 
 class LoginFormsModule implements ModuleInterface, RoutableInterface
