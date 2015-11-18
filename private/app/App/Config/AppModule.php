@@ -8,8 +8,8 @@ use Selenia\ErrorHandling\Middleware\ErrorHandlingMiddleware;
 use Selenia\FileServer\Middleware\FileServerMiddleware;
 use Selenia\Http\Middleware\CompressionMiddleware;
 use Selenia\Http\Middleware\CsrfMiddleware;
-use Selenia\HttpMiddleware\Middleware\URINotFoundMiddleware;
-use Selenia\Interfaces\Http\MiddlewareStackInterface;
+use Selenia\Http\Middleware\URINotFoundMiddleware;
+use Selenia\Interfaces\Http\HandlerPipelineInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
@@ -18,7 +18,7 @@ use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppModule implements ModuleInterface
 {
-  function boot (Application $app = null, MiddlewareStackInterface $middleware = null)
+  function boot (Application $app = null, HandlerPipelineInterface $middleware = null)
   {
     $middleware
       ->addIf (!$app->debugMode, CompressionMiddleware::class)
