@@ -18,20 +18,22 @@ use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppModule implements ModuleInterface
 {
-  function boot (Application $app = null, RequestHandlerPipelineInterface $middleware = null)
+  function boot (Application $app, RequestHandlerPipelineInterface $middleware)
   {
     $middleware
-      ->addIf (!$app->debugMode, CompressionMiddleware::class)
-      ->addIf ($app->debugMode, WebConsoleMiddleware::class)
-      ->add (ErrorHandlingMiddleware::class)
-      ->add (SessionMiddleware::class)
-      ->add (CsrfMiddleware::class)
-      ->add (LanguageMiddleware::class)
-      ->add (AuthenticationMiddleware::class)
-      ->add (FileServerMiddleware::class)
-      ->add (TranslationMiddleware::class)
-      ->add (RoutingMiddleware::class)
-      ->add (URINotFoundMiddleware::class);
+      ->set ([
+        when (!$app->debugMode, CompressionMiddleware::class),
+        when ($app->debugMode, WebConsoleMiddleware::class),
+        ErrorHandlingMiddleware::class,
+        SessionMiddleware::class,
+        CsrfMiddleware::class,
+        LanguageMiddleware::class,
+        AuthenticationMiddleware::class,
+        FileServerMiddleware::class,
+        TranslationMiddleware::class,
+        RoutingMiddleware::class,
+        URINotFoundMiddleware::class,
+      ]);
   }
 
 }
