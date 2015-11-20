@@ -8,7 +8,7 @@ use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Interfaces\Http\RequestHandlerInterface;
 use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
-use Selenia\Routing\Navigation;
+use Selenia\Routing\Navigation\NavigationLink;
 
 class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
 {
@@ -50,7 +50,7 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
   {
     $prefix = $this->settings->urlPrefix ();
     return [
-      "$prefix/login" => (new Navigation)
+      "$prefix/login" => (new NavigationLink)
         ->title ('$LOGIN_PROMPT')
         ->visible (N),
     ];
