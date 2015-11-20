@@ -23,7 +23,7 @@ class AppModule implements ModuleInterface
     $middleware
       ->set ([
         when (!$app->debugMode, CompressionMiddleware::class),
-        when ($app->debugMode, WebConsoleMiddleware::class),
+        WebConsoleMiddleware::class,
         ErrorHandlingMiddleware::class,
         SessionMiddleware::class,
         CsrfMiddleware::class,

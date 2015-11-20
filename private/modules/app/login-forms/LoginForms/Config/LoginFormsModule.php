@@ -2,31 +2,36 @@
 namespace App\LoginForms\Config;
 
 use App\LoginForms\Controllers\Login;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Core\Assembly\Services\ModuleServices;
-use Selenia\Interfaces\Http\RoutableInterface;
+use Selenia\Interfaces\Http\RequestHandlerInterface;
 use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Routing\Navigation;
 
-class LoginFormsModule implements ModuleInterface, RoutableInterface
+class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
 {
+  /** @var RouterInterface */
+  private $router;
   /** @var LoginFormsSettings */
   private $settings;
 
-  function __invoke (RouterInterface $router)
+  function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
   {
-    return $router->matchPrefix ($this->settings->urlPrefix (),
-      function (RouterInterface $router) {
-        $router
-          ->dispatch ([
-            'login' => Login::class,
-          ]);
-      });
+    $this->router
+      ->set ([
+        $this->settings->urlPrefix () => [
+          'login' => Login::class,
+        ],
+      ])
+      ->__invoke ($request, $response, $next);
   }
 
-  function configure (ModuleServices $module, LoginFormsSettings $settings)
+  function configure (ModuleServices $module, LoginFormsSettings $settings, RouterInterface $router)
   {
     $this->settings = $settings;
+    $this->router   = $router;
     $module
       ->provideTranslations ()
       ->setDefaultConfig ([
@@ -41,7 +46,7 @@ class LoginFormsModule implements ModuleInterface, RoutableInterface
       });
   }
 
-  private function navigation ()
+  function navigation ()
   {
     $prefix = $this->settings->urlPrefix ();
     return [

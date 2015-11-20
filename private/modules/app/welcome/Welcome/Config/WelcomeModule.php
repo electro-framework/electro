@@ -2,6 +2,8 @@
 namespace App\Welcome\Config;
 
 use App\Welcome\Controllers\Index;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Http\Components\PageComponent;
 use Selenia\Interfaces\Http\RouterInterface;
@@ -9,48 +11,32 @@ use Selenia\Interfaces\ModuleInterface;
 
 class WelcomeModule implements ModuleInterface
 {
-  static function routes ()
+  /** @var RouterInterface */
+  private $router;
+
+  function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
   {
-    $module = 'app/welcome';
+    $this->router
+      ->set ([
 
-    return [
+        // Example route implementing a self-contained component-like controller.
 
-      // Example route implementing a self-contained component-like controller.
+        '' => Index::class,
 
-      PageRoute ([
-        'title'      => 'Welcome',
-        'URI'        => '',           // The root URI
-        'controller' => Index::class,
-      ]),
+        // Example route using an automatic controller and an external view.
 
-      // Example route using an automatic controller and an external view.
+        'example' => factory (function (PageComponent $page) {
+          $page->templateUrl = 'index.html';
+          return $page;
+        }),
 
-      PageRoute ([
-        'title'          => 'Example Page',
-        'URI'            => 'example',
-        'module'         => $module,
-        'view'           => 'index.html',
-        'autoController' => true,
-      ]),
-
-    ];
+      ])
+      ->__invoke ($request, $response, $next);
   }
 
-  function __invoke (RouterInterface $router)
+  function configure (ModuleServices $module, RouterInterface $router)
   {
-    return $router
-      ->dispatch ([
-        ''        => Index::class,
-        'example' => [
-          PageComponent::class, [
-            'view' => 'index.html',
-          ],
-        ],
-      ]);
-  }
-
-  function configure (ModuleServices $module)
-  {
+    $this->router = $router;
     $module
       ->publishPublicDirAs ('modules/selenia/welcome')
       ->provideTemplates ()
