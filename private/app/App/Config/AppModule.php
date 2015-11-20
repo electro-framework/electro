@@ -2,7 +2,6 @@
 namespace App\Config;
 
 use Selenia\Application;
-use Selenia\Authentication\Middleware\AuthenticationMiddleware;
 use Selenia\Debugging\Middleware\WebConsoleMiddleware;
 use Selenia\ErrorHandling\Middleware\ErrorHandlingMiddleware;
 use Selenia\FileServer\Middleware\FileServerMiddleware;
@@ -28,7 +27,6 @@ class AppModule implements ModuleInterface
         SessionMiddleware::class,
         CsrfMiddleware::class,
         LanguageMiddleware::class,
-        AuthenticationMiddleware::class,
         FileServerMiddleware::class,
         TranslationMiddleware::class,
         RoutingMiddleware::class,
