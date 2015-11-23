@@ -16,7 +16,7 @@ class WelcomeModule implements ModuleInterface
 
   function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
   {
-    $this->router
+    return $this->router
       ->set ([
 
         // Example route implementing a self-contained component-like controller.

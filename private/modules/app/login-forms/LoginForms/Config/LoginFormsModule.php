@@ -19,7 +19,7 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
 
   function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
   {
-    $this->router
+    return $this->router
       ->set ([
         $this->settings->urlPrefix () => [
           'login' => Login::class,
