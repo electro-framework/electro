@@ -21,13 +21,13 @@ class AppModule implements ModuleInterface
   {
     $middleware
       ->set ([
+        FileServerMiddleware::class,
         when (!$app->debugMode, CompressionMiddleware::class),
         WebConsoleMiddleware::class,
         ErrorHandlingMiddleware::class,
         SessionMiddleware::class,
         CsrfMiddleware::class,
         LanguageMiddleware::class,
-        FileServerMiddleware::class,
         TranslationMiddleware::class,
         RoutingMiddleware::class,
         URINotFoundMiddleware::class,

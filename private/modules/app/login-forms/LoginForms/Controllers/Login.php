@@ -47,6 +47,13 @@ class Login extends PageComponent
     }
   }
 
+  protected function initialize ()
+  {
+    parent::initialize ();
+    $this->session->reflashPreviousUrl ();
+  }
+
+
   protected function model ()
   {
     return [
