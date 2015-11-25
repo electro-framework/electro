@@ -12,7 +12,7 @@ class Login extends PageComponent
     if ($this->model['lang'])
       $this->session->setLang ($this->model['lang']);
     $this->doLogin ($this->model['username'], $this->model['password']);
-    return $this->redirection->intended ($this->app->baseURI);
+    return $this->redirection->intended ($this->request->getAttribute ('baseUri'));
   }
 
   /**
