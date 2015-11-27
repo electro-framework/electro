@@ -8,9 +8,11 @@ use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Interfaces\Http\RequestHandlerInterface;
 use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
+use Selenia\Interfaces\Navigation\NavigationInterface;
+use Selenia\Interfaces\Navigation\NavigationProviderInterface;
 use Selenia\Routing\Navigation\NavigationLink;
 
-class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
+class LoginFormsModule implements ModuleInterface, RequestHandlerInterface, NavigationProviderInterface
 {
   /** @var RouterInterface */
   private $router;
@@ -41,16 +43,17 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface
       ])
       ->onPostConfig (function () use ($module) {
         $module
-          ->provideNavigation ([$this, 'navigation'])
+          ->provideNavigation ($this)
           ->registerRouter ($this);
       });
   }
 
-  function navigation ()
+  function getNavigation (NavigationInterface $navigation)
   {
     $prefix = $this->settings->urlPrefix ();
     return [
-      "$prefix/login" => (new NavigationLink)
+      "$prefix/login" => $navigation
+        ->link()
         ->title ('$LOGIN_PROMPT')
         ->visible (N),
     ];
