@@ -8,8 +8,8 @@ use Selenia\FileServer\Middleware\FileServerMiddleware;
 use Selenia\Http\Middleware\CompressionMiddleware;
 use Selenia\Http\Middleware\CsrfMiddleware;
 use Selenia\Http\Middleware\URINotFoundMiddleware;
-use Selenia\Interfaces\Http\Shared\RootMiddlewareStackInterface;
-use Selenia\Interfaces\Http\Shared\RootRouterInterface;
+use Selenia\Interfaces\Http\Shared\ApplicationMiddlewareInterface;
+use Selenia\Interfaces\Http\Shared\ApplicationRouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
@@ -17,7 +17,7 @@ use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppModule implements ModuleInterface
 {
-  function boot (Application $app, RootMiddlewareStackInterface $middleware)
+  function boot (Application $app, ApplicationMiddlewareInterface $middleware)
   {
     $middleware
       ->set ([
@@ -29,7 +29,7 @@ class AppModule implements ModuleInterface
         CsrfMiddleware::class,
         LanguageMiddleware::class,
         TranslationMiddleware::class,
-        'router' => RootRouterInterface::class,
+        'router' => ApplicationRouterInterface::class,
         URINotFoundMiddleware::class,
       ]);
   }
