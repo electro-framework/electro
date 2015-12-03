@@ -10,7 +10,6 @@ use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Interfaces\Navigation\NavigationInterface;
 use Selenia\Interfaces\Navigation\NavigationProviderInterface;
-use Selenia\Routing\Navigation\NavigationLink;
 
 class LoginFormsModule implements ModuleInterface, RequestHandlerInterface, NavigationProviderInterface
 {
@@ -48,15 +47,15 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface, Navi
       });
   }
 
-  function getNavigation (NavigationInterface $navigation)
+  function defineNavigation (NavigationInterface $navigation)
   {
     $prefix = $this->settings->urlPrefix ();
-    return [
+    $navigation->add([
       "$prefix/login" => $navigation
         ->link()
         ->title ('$LOGIN_PROMPT')
         ->visible (N),
-    ];
+    ]);
   }
 
 }
