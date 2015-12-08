@@ -21,7 +21,7 @@ class WelcomeModule implements ModuleInterface
 
         // Example route implementing a self-contained component-like controller.
 
-        '' => Index::class,
+        '.' => Index::class,
 
         // Example route using an automatic controller and an external view.
 

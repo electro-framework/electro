@@ -22,7 +22,7 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface, Navi
   {
     return $this->router
       ->set ([
-        $this->settings->urlPrefix () => [
+        $this->settings->urlPrefix () . '...' => [
           'login' => Login::class,
         ],
       ])
@@ -53,6 +53,7 @@ class LoginFormsModule implements ModuleInterface, RequestHandlerInterface, Navi
     $navigation->add([
       "$prefix/login" => $navigation
         ->link()
+        ->id ('login')
         ->title ('$LOGIN_PROMPT')
         ->visible (N),
     ]);
