@@ -8,8 +8,10 @@ use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Http\Components\PageComponent;
 use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
+use Selenia\Interfaces\Navigation\NavigationInterface;
+use Selenia\Interfaces\Navigation\NavigationProviderInterface;
 
-class WelcomeModule implements ModuleInterface
+class WelcomeModule implements ModuleInterface, NavigationProviderInterface
 {
   /** @var RouterInterface */
   private $router;
@@ -42,6 +44,7 @@ class WelcomeModule implements ModuleInterface
       ->provideTemplates ()
       ->provideViews ()
       ->registerRouter ($this)
+      ->provideNavigation ($this)
       ->setDefaultConfig ([
         'main' => [
           'name'    => 'site',              // session cookie name
@@ -49,6 +52,21 @@ class WelcomeModule implements ModuleInterface
           'title'   => '@ - Your App',      // @ = page title
         ],
       ]);
+  }
+
+  function defineNavigation (NavigationInterface $navigation)
+  {
+    $navigation->add ([
+      '' => $navigation
+        ->link ()
+        ->id ('home')
+        ->title ('Welcome')
+        ->links ([
+          'example' => $navigation
+            ->link ()
+            ->title ('Example'),
+        ]),
+    ]);
   }
 
 }

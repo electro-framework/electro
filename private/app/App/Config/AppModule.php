@@ -13,6 +13,7 @@ use Selenia\Interfaces\Http\Shared\ApplicationRouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
+use Selenia\Navigation\Middleware\NavigationMiddleware;
 use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppModule implements ModuleInterface
@@ -30,6 +31,7 @@ class AppModule implements ModuleInterface
           CsrfMiddleware::class,
           LanguageMiddleware::class,
           TranslationMiddleware::class,
+          NavigationMiddleware::class,
           'router' => ApplicationRouterInterface::class,
           URLNotFoundMiddleware::class,
         ]);
