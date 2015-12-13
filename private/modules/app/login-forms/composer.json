@@ -27,8 +27,8 @@
   "extra": {
     "bower": {
       "require": {
-        "bootstrap": "~3.3.4",
-        "font-awesome": "~4.2.0"
+        "bootstrap": "^3.3.6",
+        "font-awesome": "^4.5.0"
       }
     }
   },
