@@ -2,18 +2,20 @@
 namespace App\Welcome\Controllers;
 use Selenia\Core\Assembly\Services\ModulesRegistry;
 use Selenia\Http\Components\PageComponent;
-use Selenia\Matisse\DataRecord;
 
 class Index extends PageComponent
 {
+  public $adminModuleIsInstalled;
   /**
    * @var ModulesRegistry
    */
   private $modulesRegistry;
 
-  function inject (ModulesRegistry $registry)
+  function inject ()
   {
-    $this->modulesRegistry = $registry;
+    return function (ModulesRegistry $registry) {
+      $this->modulesRegistry = $registry;
+    };
   }
 
 
@@ -45,10 +47,6 @@ class Index extends PageComponent
 
   protected function viewModel ()
   {
-    return [
-      'default' => [
-        'adminModuleIsInstalled' => new DataRecord ($this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface')),
-      ],
-    ];
+    $this->adminModuleIsInstalled = $this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface');
   }
 }
