@@ -66,9 +66,8 @@ class Login extends PageComponent
   protected function render ()
   { ?>
     <BaseAdmin>
-      <script>
-        document.body.className = "login-page";
-      </script>
+
+      <Body class="login-page"/>
 
       {!! statusMessage !!}
 
@@ -100,7 +99,7 @@ class Login extends PageComponent
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-sm-6 col-sm-offset-3">
               <Button class="btn-info btn-lg btn-block icon-right"
                       type="submit"
                       script="doAction('login')"
