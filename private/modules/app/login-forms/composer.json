@@ -22,7 +22,7 @@
   "require": {
     "php": ">=5.6.0",
     "selenia/installers": "^1.0.0",
-    "selenia-plugins/matisse-widgets": "dev-master"
+    "selenia-plugins/matisse-components": "dev-master"
   },
   "extra": {
     "bower": {
