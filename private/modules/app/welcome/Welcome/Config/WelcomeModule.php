@@ -41,7 +41,7 @@ class WelcomeModule implements ModuleInterface, NavigationProviderInterface
     $this->router = $router;
     $module
       ->publishPublicDirAs ('modules/selenia/welcome')
-      ->provideTemplates ()
+      ->provideMacros ()
       ->provideViews ()
       ->registerRouter ($this)
       ->provideNavigation ($this)
