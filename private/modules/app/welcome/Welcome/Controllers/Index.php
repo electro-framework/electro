@@ -37,6 +37,8 @@ class Index extends PageComponent
           </div>
         </If>
 
+        <p><a href="example"><small>Click here to test the routing subsystem</small></a></p>
+
       </div>
       <div class="quote">rapid web development</div>
       <div class="by">made by <a href="http://impactwave.com" target="_blank">Impactwave</a></div>
