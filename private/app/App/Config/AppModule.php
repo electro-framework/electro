@@ -31,8 +31,8 @@ class AppModule implements ModuleInterface
           CsrfMiddleware::class,
           LanguageMiddleware::class,
           TranslationMiddleware::class,
-          when ($app->debugMode, AutoRoutingMiddleware::class),
           'router' => ApplicationRouterInterface::class,
+          when ($app->debugMode, AutoRoutingMiddleware::class),
           URLNotFoundMiddleware::class,
         ]);
   }
