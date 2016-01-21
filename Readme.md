@@ -20,6 +20,25 @@
 
 Selenia utilises [Composer](http://getcomposer.org) to manage its dependencies. So, before using Selenia, you will need to make sure you have Composer installed on your machine.
 
+#### Configure your environment
+
+You should add `./bin` to your environment's PATH variable, so that Selenia commands can be run easily on the terminal.
+> Examples on the framework's documentation and Readme files assume your PATH is configured this way. Failure to do this will cause errors when running the examples.
+
+##### Configuring the path
+
+Add this to your *shell environment*:
+
+	export PATH=./bin:$PATH
+
+> Put this line at the end of one of these files: `~/.bash_profile`, `~/.bashrc` or `~/.profile`, depending on you operating system type and configuration.
+
+**You only have to do this once**. Also, first make sure your path isn't already configured this way.
+
+> You can check your current path by typing:
+
+>        echo $PATH
+
 #### Install the project
 
 On the parent folder where the project folder will be created, issue the `composer create-project` command on your terminal.
@@ -32,7 +51,7 @@ cd parent-folder
 composer create-project -s dev selenia/selenia your-project-name
 ```
 
-Upon completing the installation, Composer will ask you:
+Upon completing the installation, Composer may ask you:
 
 ```
 Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?

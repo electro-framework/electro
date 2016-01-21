@@ -1,4 +1,5 @@
 <?php
+use App\Init;
 use Selenia\Core\DependencyInjection\Injector;
 use Selenia\WebApplication\WebApplication;
 
@@ -9,8 +10,10 @@ use Selenia\WebApplication\WebApplication;
 //ini_set ('error_log', __DIR__ . '/error.log');
 
 // Start the class autoloader.
-
 require "private/packages/autoload.php";
+
+// Setup the app.
+Init::init ();
 
 /*
  * Launch the application on HTTP request handling mode.

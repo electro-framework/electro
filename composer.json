@@ -27,8 +27,7 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.6",
-    "selenia/framework": "1.x-dev",
-    "selenia-plugins/admin-interface": "dev-master"
+    "selenia/framework": "1.x-dev"
   },
   "extra": {
     "merge-plugin": {
@@ -43,13 +42,13 @@
     }
   },
   "autoload": {
-    "files": [
-      "private/bootstrap.php"
-    ]
+    "psr-4": {
+      "App\\": "private/app/App"
+    }
   },
   "scripts": {
     "post-install-cmd": [
-      "Selenia\\Tasks\\Tasks\\CoreTasks::runInit"
+      "App\\Init::runInitCommand"
     ],
     "post-update-cmd": [
     ],

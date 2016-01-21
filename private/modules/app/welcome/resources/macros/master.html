@@ -2,17 +2,27 @@
   <Param name="content" type="content"/>
 
   <Style src="modules/selenia/welcome/main.css"/>
+  <Style src='//fonts.googleapis.com/css?family=Lato:300'/>
 
-  <Head>
-    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-  </Head>
+  <!DOCTYPE HTML>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>{{ pageTitle }}</title>
+      <base href="{{ app.baseURI }}/">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="{{ app.favicon }}">
+      <Include styles/>
+    </head>
 
-  <div class="banner-small">
-    <a href=""><img src="modules/selenia/welcome/selenia_100.png"></a>
-  </div>
+    <div class="banner-small">
+      <a href=""><img src="modules/selenia/welcome/selenia_100.png"></a>
+    </div>
 
-  <div class="container">
-    {{ @content }}
-  </div>
+    <div class="container">
+      {{ @content }}
+    </div>
+
+  </html>
 
 </Macro>
