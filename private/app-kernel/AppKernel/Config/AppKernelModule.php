@@ -1,5 +1,5 @@
 <?php
-namespace App\Config;
+namespace AppKernel\Config;
 
 use Selenia\Application;
 use Selenia\Debugging\Middleware\WebConsoleMiddleware;
@@ -16,7 +16,7 @@ use Selenia\Localization\Middleware\TranslationMiddleware;
 use Selenia\Routing\Middleware\AutoRoutingMiddleware;
 use Selenia\Sessions\Middleware\SessionMiddleware;
 
-class AppModule implements ModuleInterface
+class AppKernelModule implements ModuleInterface
 {
   function boot (Application $app, ApplicationMiddlewareInterface $middleware)
   {

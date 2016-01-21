@@ -1,5 +1,5 @@
 <?php
-use App\Init;
+use AppKernel\Init;
 use Selenia\Core\DependencyInjection\Injector;
 use Selenia\WebApplication\WebApplication;
 

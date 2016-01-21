@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace AppKernel;
 
 use Dotenv\Dotenv;
 use Selenia\Console\ConsoleApplication;
