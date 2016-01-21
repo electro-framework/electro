@@ -21,6 +21,7 @@ bower.json
 
 .idea
 *.log
+*.bak
 .DS_Store
 Thumbs.db
 

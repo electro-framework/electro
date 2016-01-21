@@ -49,7 +49,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "Selenia\\CoreTasks::runInit"
+      "Selenia\\Tasks\\Tasks\\CoreTasks::runInit"
     ],
     "post-update-cmd": [
     ],
