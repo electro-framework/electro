@@ -1,5 +1,5 @@
 <?php
-namespace App\Welcome\Controllers;
+namespace DemoCompany\DemoProject\Controllers;
 use Selenia\Core\Assembly\Services\ModulesRegistry;
 use Selenia\Http\Components\PageComponent;
 

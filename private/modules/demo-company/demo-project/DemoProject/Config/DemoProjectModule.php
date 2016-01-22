@@ -1,7 +1,7 @@
 <?php
-namespace App\Welcome\Config;
+namespace DemoCompany\DemoProject\Config;
 
-use App\Welcome\Controllers\Index;
+use DemoCompany\DemoProject\Controllers\Index;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Core\Assembly\Services\ModuleServices;
@@ -11,7 +11,7 @@ use Selenia\Interfaces\ModuleInterface;
 use Selenia\Interfaces\Navigation\NavigationInterface;
 use Selenia\Interfaces\Navigation\NavigationProviderInterface;
 
-class WelcomeModule implements ModuleInterface, NavigationProviderInterface
+class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
 {
   /** @var RouterInterface */
   private $router;

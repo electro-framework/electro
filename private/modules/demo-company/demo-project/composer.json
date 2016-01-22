@@ -1,0 +1,9 @@
+{
+  "name": "demo-company/demo-project",
+  "description": "Simple demonstration app for a brand new Selenia framework installation",
+  "autoload": {
+    "psr-4": {
+      "DemoCompany\\DemoProject\\": "DemoProject"
+    }
+  }
+}
