@@ -1,0 +1,17 @@
+<Content of="master">
+
+  <body>
+    {!! statusMessage !!}
+
+    <form method="post" onsubmit="return Form_onSubmit()">
+      <input type="hidden" name="_action">
+
+      {!! #main !!}
+
+    </form>
+    <Include scripts/>
+  </body>
+
+</Content>
+
+<Include view="layouts/master.html"/>

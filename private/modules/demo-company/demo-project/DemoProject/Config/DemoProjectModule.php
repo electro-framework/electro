@@ -20,18 +20,16 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
   {
     return $this->router
       ->set ([
-
         // Example route implementing a self-contained component-like controller.
-
-        '.' => Index::class,
+        '.'     => Index::class,
 
         // Example route using an automatic controller and an external view.
-
-        'example' => factory (function (PageComponent $page) {
-          $page->templateUrl = 'index.html';
+        'page1' => factory (function (PageComponent $page) {
+          $page->templateUrl = 'page1.html'; // try changing this to page2 and see what happens...
           return $page;
         }),
 
+        // page2 is served via auto-routing (but only on debug/development mode)
       ])
       ->__invoke ($request, $response, $next);
   }
@@ -40,16 +38,16 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
   {
     $this->router = $router;
     $module
-      ->publishPublicDirAs ('modules/selenia/welcome')
+      ->publishPublicDirAs ('modules/demo-company/demo-project')
       ->provideMacros ()
       ->provideViews ()
       ->registerRouter ($this)
       ->provideNavigation ($this)
       ->setDefaultConfig ([
         'main' => [
-          'name'    => 'site',              // session cookie name
-          'appName' => 'Your App',
-          'title'   => '@ - Your App',      // @ = page title
+          'name'    => 'demo',                    // session cookie name
+          'appName' => 'Selenia framework demo',  // default page title; also displayed on title bar (optional)
+          'title'   => '@ - Demo',                // @ = page title
         ],
       ]);
   }
@@ -60,11 +58,16 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
       '' => $navigation
         ->link ()
         ->id ('home')
-        ->title ('Welcome')
+        ->title ('Home')
         ->links ([
-          'example' => $navigation
+          'page1' => $navigation
             ->link ()
-            ->title ('Example'),
+            ->id ('page1')
+            ->title ('Page 1'),
+          'page2' => $navigation
+            ->link ()
+            ->id ('page2')
+            ->title ('Page 2'),
         ]),
     ]);
   }

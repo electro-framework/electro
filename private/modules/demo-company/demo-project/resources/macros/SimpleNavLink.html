@@ -1,0 +1,13 @@
+<Macro name="SimpleNavLink">
+  <Param name="href" type="string"/>
+  <Param name="label" type="string"/>
+
+  <If the="{{ virtualUrl }}" is="{{ @href }}">
+    <li class="active">
+      <Else>
+    <li>
+      </Else>
+  </If>
+  <a href="{{ @href }}">{{ @label }}</a></li>
+
+</Macro>

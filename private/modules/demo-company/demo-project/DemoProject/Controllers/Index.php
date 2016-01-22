@@ -1,54 +1,34 @@
 <?php
 namespace DemoCompany\DemoProject\Controllers;
-use Selenia\Core\Assembly\Services\ModulesRegistry;
+
 use Selenia\Http\Components\PageComponent;
 
 class Index extends PageComponent
 {
-  public $adminModuleIsInstalled;
-  /**
-   * @var ModulesRegistry
-   */
-  private $modulesRegistry;
-
-  function inject ()
-  {
-    return function (ModulesRegistry $registry) {
-      $this->modulesRegistry = $registry;
-    };
-  }
-
-
   protected function render ()
   { ?>
-    <Master>
+    <Content of="main">
 
-      <div class="intro">
+      <Jumbotron style="border-bottom:1px solid #ddd">
+        <div style="text-align:center">
+          <img src="modules/demo-company/demo-project/selenia_100.png">
+          <h2>Selenia framework</h2><br><br>
+          <p>Installation successful</p><br><br><br>
+          <p>
+            <a href="page1">
+              <small>Click here for some demonstration pages</small>
+            </a>
+          </p>
+        </div>
+      </Jumbotron>
 
-        <h1>Well done!</h1>
-        <p>You have succesfully installed Selenia on your computer.</p><br><br>
-
-        <If the="{{ adminModuleIsInstalled }}" isTrue>
-          <div class="text">
-            <p class="center">The Administration Interface Plugin is installed.</p>
-            <div class="center space">
-              <a class="btn" href="admin/users">Enter Admin</a>
-            </div>
-          </div>
-        </If>
-
-        <p><a href="example"><small>Click here to test the routing subsystem</small></a></p>
-
+      <div style="float:right;margin:-15px 15px">
+        Copyright © 2014 <a href="http://impactwave.com" target="_blank">Impactwave</a> Lda, all rights reserved.
       </div>
-      <div class="quote">rapid web development</div>
-      <div class="by">made by <a href="http://impactwave.com" target="_blank">Impactwave</a></div>
-    </Master>
+    </Content>
 
+    <Include view="layouts/main.html"/>
     <?php
   }
 
-  protected function viewModel ()
-  {
-    $this->adminModuleIsInstalled = $this->modulesRegistry->isInstalled ('selenia-plugins/admin-interface');
-  }
 }
