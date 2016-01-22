@@ -45,9 +45,9 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
       ->provideNavigation ($this)
       ->setDefaultConfig ([
         'main' => [
-          'name'    => 'demo',                    // session cookie name
-          'appName' => 'Selenia framework demo',  // default page title; also displayed on title bar (optional)
-          'title'   => '@ - Demo',                // @ = page title
+          'name'    => 'demo',             // session cookie name
+          'appName' => 'Minimal Website',  // default page title; also displayed on title bar (optional)
+          'title'   => '@ - Demo',         // @ = page title
         ],
       ]);
   }

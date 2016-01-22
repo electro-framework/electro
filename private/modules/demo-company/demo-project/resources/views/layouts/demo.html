@@ -1,10 +1,5 @@
 <Style src="modules/demo-company/demo-project/demo.css"/>
 
-<!-- This must be set before the 'master-content' -->
-<Content of="footer" byDefault>
-  <p>&copy; 2015 Company, Inc.</p>
-</Content>
-
 <Content of="main">
 
   <Include view="includes/page-header.html"/>
@@ -15,8 +10,8 @@
         <p class="pull-right visible-xs">
           <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
         </p>
-        <!-- The jumbotron of's content becomes the Jumbotron macro's content -->
-        <Jumbotron title="Minimal Website Sample">
+        <!-- The #jumbotron block's content becomes the Jumbotron macro's content -->
+        <Jumbotron title="Minimal Website Demo">
           {!! #jumbotron !!}
         </Jumbotron>
         <!-- The main page content goes here -->
@@ -35,6 +30,10 @@
     </footer>
 
   </div>
+</Content>
+
+<Content of="footer" byDefault>
+  <p>&copy; 2015 Company, Inc.</p>
 </Content>
 
 <Content appendTo="scripts">
