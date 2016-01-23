@@ -24,7 +24,7 @@ class AppKernelModule implements ModuleInterface
       $middleware
         ->set ([
           FileServerMiddleware::class,
-          when (!$app->debugMode, CompressionMiddleware::class),
+          when ($app->compressOutput, CompressionMiddleware::class),
           WebConsoleMiddleware::class,
           ErrorHandlingMiddleware::class,
           SessionMiddleware::class,

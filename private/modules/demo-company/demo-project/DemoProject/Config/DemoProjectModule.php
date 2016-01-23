@@ -4,6 +4,7 @@ namespace DemoCompany\DemoProject\Config;
 use DemoCompany\DemoProject\Controllers\Index;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Selenia\Application;
 use Selenia\Core\Assembly\Services\ModuleServices;
 use Selenia\Http\Components\PageComponent;
 use Selenia\Interfaces\Http\RouterInterface;
@@ -34,22 +35,18 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
       ->__invoke ($request, $response, $next);
   }
 
-  function configure (ModuleServices $module, RouterInterface $router)
+  function configure (ModuleServices $module, RouterInterface $router, Application $app)
   {
     $this->router = $router;
+    $app->name    = 'demo';            // session cookie name
+    $app->appName = 'Minimal Website'; // default page title; also displayed on title bar (optional)
+    $app->title   = '@ - Demo';        // @ = page title
     $module
       ->publishPublicDirAs ('modules/demo-company/demo-project')
       ->provideMacros ()
       ->provideViews ()
       ->registerRouter ($this)
-      ->provideNavigation ($this)
-      ->setDefaultConfig ([
-        'main' => [
-          'name'    => 'demo',             // session cookie name
-          'appName' => 'Minimal Website',  // default page title; also displayed on title bar (optional)
-          'title'   => '@ - Demo',         // @ = page title
-        ],
-      ]);
+      ->provideNavigation ($this);
   }
 
   function defineNavigation (NavigationInterface $navigation)
