@@ -51,6 +51,7 @@
       "AppKernel\\Init::runInitCommand"
     ],
     "post-update-cmd": [
+      "AppKernel\\Init::runUpdateCommand"
     ],
     "post-create-project-cmd": []
   }
