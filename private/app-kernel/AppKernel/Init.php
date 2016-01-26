@@ -53,6 +53,7 @@ class Init
   {
     $root = dirname (dirname (__DIR__));
     require "$root/packages/autoload.php";
+    Init::init ();
     $consoleApp = ConsoleApplication::make (new Injector);
     $consoleApp->setupStandardIO (['', $name]);
     $consoleApp->execute ();
