@@ -1,7 +1,7 @@
 <?php
 use AppKernel\Init;
 use Selenia\Core\DependencyInjection\Injector;
-use Selenia\WebApplication\WebApplication;
+use Selenia\Core\WebApplication\WebApplication;
 
 /*
  * Temporarily uncomment the following line for troubleshooting on restricted hosting environments.
