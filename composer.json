@@ -27,7 +27,8 @@
   "prefer-stable": false,
   "require": {
     "php": ">=5.6",
-    "selenia/framework": "1.x-dev"
+    "selenia/framework": "1.x-dev",
+    "selenia-plugins/illuminate-database": "dev-master"
   },
   "extra": {
     "merge-plugin": {
@@ -47,12 +48,14 @@
     }
   },
   "scripts": {
+    "post-create-project-cmd": [
+      "AppKernel\\Init::runInitCommand"
+    ],
     "post-install-cmd": [
       "AppKernel\\Init::runInitCommand"
     ],
     "post-update-cmd": [
       "AppKernel\\Init::runUpdateCommand"
-    ],
-    "post-create-project-cmd": []
+    ]
   }
 }
