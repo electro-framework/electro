@@ -2,7 +2,7 @@
 namespace AppKernel;
 
 use Dotenv\Dotenv;
-use Selenia\Console\ConsoleApplication;
+use Selenia\Core\ConsoleApplication\ConsoleApplication;
 use Selenia\Core\DependencyInjection\Injector;
 
 class Init
