@@ -4,7 +4,9 @@ namespace AppKernel;
 use Dotenv\Dotenv;
 use Selenia\Core\ConsoleApplication\ConsoleApplication;
 use Selenia\Core\DependencyInjection\Injector;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\NullOutput;
 
 class Init
 {
@@ -76,21 +78,32 @@ class Init
     $output = null;
     if ($event) {
       $io = $event->getIO ();
-      // DO NOT change the order of evaluation!
-      switch (true) {
-        case $io->isDebug ():
-          $verbose = ConsoleOutput::VERBOSITY_DEBUG;
-          break;
-        case $io->isVeryVerbose ():
-          $verbose = ConsoleOutput::VERBOSITY_VERY_VERBOSE;
-          break;
-        case $io->isVerbose ():
-          $verbose = ConsoleOutput::VERBOSITY_VERBOSE;
-          break;
-        default:
-          $verbose = ConsoleOutput::VERBOSITY_NORMAL;
+
+      // Check for the presence of the -q|--quiet option.
+      $r = new \ReflectionProperty($io, 'input');
+      $r->setAccessible (true);
+      /** @var ArgvInput $input */
+      $input = $r->getValue ($io);
+      if ($input->getOption ('quiet'))
+        $output = new NullOutput;
+
+      else {
+        // DO NOT change the order of evaluation!
+        switch (true) {
+          case $io->isDebug ():
+            $verbose = ConsoleOutput::VERBOSITY_DEBUG;
+            break;
+          case $io->isVeryVerbose ():
+            $verbose = ConsoleOutput::VERBOSITY_VERY_VERBOSE;
+            break;
+          case $io->isVerbose ():
+            $verbose = ConsoleOutput::VERBOSITY_VERBOSE;
+            break;
+          default:
+            $verbose = ConsoleOutput::VERBOSITY_NORMAL;
+        }
+        $output = new ConsoleOutput($verbose, $io->isDecorated ());
       }
-      $output = new ConsoleOutput($verbose, $io->isDecorated ());
     }
     $root = dirname (dirname (__DIR__));
     require "$root/packages/autoload.php";
