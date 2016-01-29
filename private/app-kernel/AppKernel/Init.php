@@ -30,11 +30,12 @@ class Init
    * (internal use)
    * This is called by Composer on the post-install event.
    *
+   * @param Composer\Script\PackageEvent $event
    * @return int
    */
-  static function runInitCommand ()
+  static function runInitCommand ($event)
   {
-    return self::runCommand ('init');
+    return self::runCommand ('init', [], $event);
   }
 
   /**
@@ -47,7 +48,7 @@ class Init
   static function runUninstallCommand ($event)
   {
     $package = $event->getOperation ()->getPackage ();
-    return self::runCommand ('module:clean-up', ['-s', $package->getName ()], $event->getIO ());
+    return self::runCommand ('module:clean-up', ['-s', $package->getName ()], $event);
   }
 
   /**
@@ -56,43 +57,46 @@ class Init
    *
    * @return int
    */
-  static function runUpdateCommand ()
+  static function runUpdateCommand ($event)
   {
-    return self::runCommand ('module:refresh');
+    return self::runCommand ('module:refresh', [], $event);
   }
 
   /**
    * (internal use)
    * Runs the specified console command from within a Composer execution context.
    *
-   * @param string                  $name Command name.
-   * @param string[]                $args Command arguments.
-   * @param Composer\IO\IOInterface $io
+   * @param string                       $name Command name.
+   * @param string[]                     $args Command arguments.
+   * @param Composer\Script\PackageEvent $event
    * @return int
    */
-  static private function runCommand ($name, $args = [], $io = null)
+  static private function runCommand ($name, $args = [], $event = null)
   {
-    if ($io) {
+    $output = null;
+    if ($event) {
+      $io = $event->getIO ();
+      // DO NOT change the order of evaluation!
       switch (true) {
-        case $io->isVerbose ():
-          $verbose = ConsoleOutput::VERBOSITY_VERBOSE;
+        case $io->isDebug ():
+          $verbose = ConsoleOutput::VERBOSITY_DEBUG;
           break;
         case $io->isVeryVerbose ():
           $verbose = ConsoleOutput::VERBOSITY_VERY_VERBOSE;
           break;
-        case $io->isDebug ():
-          $verbose = ConsoleOutput::VERBOSITY_DEBUG;
+        case $io->isVerbose ():
+          $verbose = ConsoleOutput::VERBOSITY_VERBOSE;
           break;
         default:
           $verbose = ConsoleOutput::VERBOSITY_NORMAL;
       }
-      $out = new ConsoleOutput($verbose, $io->isDecorated ());
+      $output = new ConsoleOutput($verbose, $io->isDecorated ());
     }
     $root = dirname (dirname (__DIR__));
     require "$root/packages/autoload.php";
     Init::init ();
     $consoleApp = ConsoleApplication::make (new Injector);
-    $consoleApp->setupStandardIO (array_merge (['', $name], $args));
+    $consoleApp->setupStandardIO (array_merge (['', $name], $args), $output);
     return $consoleApp->execute ();
   }
 
