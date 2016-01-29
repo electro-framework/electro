@@ -46,7 +46,7 @@ class Init
   static function runUninstallCommand ($event)
   {
     $package = $event->getOperation ()->getPackage ();
-    return self::runCommand ('module:clean', [$package->getName ()]);
+    return self::runCommand ('module:clean-up', ['-s', $package->getName ()]);
   }
 
   /**
