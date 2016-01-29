@@ -28,35 +28,54 @@ class Init
   /**
    * (internal use)
    * This is called by Composer on the post-install event.
+   *
+   * @return int
    */
   static function runInitCommand ()
   {
-    self::runCommand ('init');
+    return self::runCommand ('init');
   }
 
   /**
    * (internal use)
    * This is called by Composer on the post-update event.
+   *
+   * @param Composer\Script\PackageEvent $event
+   * @return int
+   */
+  static function runUninstallCommand ($event)
+  {
+    $package = $event->getOperation ()->getPackage ();
+    return self::runCommand ('module:clean', [$package->getName ()]);
+  }
+
+  /**
+   * (internal use)
+   * This is called by Composer on the post-update event.
+   *
+   * @return int
    */
   static function runUpdateCommand ()
   {
-    self::runCommand ('module:refresh');
+    return self::runCommand ('module:refresh');
   }
 
   /**
    * (internal use)
    * Runs the specified console command from within a Composer execution context.
    *
-   * @param string $name
+   * @param string   $name Command name.
+   * @param string[] $args Command arguments.
+   * @return int
    */
-  static private function runCommand ($name)
+  static private function runCommand ($name, $args = [])
   {
     $root = dirname (dirname (__DIR__));
     require "$root/packages/autoload.php";
     Init::init ();
     $consoleApp = ConsoleApplication::make (new Injector);
-    $consoleApp->setupStandardIO (['', $name]);
-    $consoleApp->execute ();
+    $consoleApp->setupStandardIO (array_merge (['', $name], $args));
+    return $consoleApp->execute ();
   }
 
 }

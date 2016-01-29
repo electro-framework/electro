@@ -52,6 +52,9 @@
     ],
     "post-update-cmd": [
       "AppKernel\\Init::runUpdateCommand"
+    ],
+    "pre-package-uninstall": [
+      "AppKernel\\Init::runUninstallCommand"
     ]
   }
 }
