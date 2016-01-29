@@ -4,6 +4,7 @@ namespace AppKernel;
 use Dotenv\Dotenv;
 use Selenia\Core\ConsoleApplication\ConsoleApplication;
 use Selenia\Core\DependencyInjection\Injector;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Init
 {
@@ -46,7 +47,7 @@ class Init
   static function runUninstallCommand ($event)
   {
     $package = $event->getOperation ()->getPackage ();
-    return self::runCommand ('module:clean-up', ['-s', $package->getName ()]);
+    return self::runCommand ('module:clean-up', ['-s', $package->getName ()], $event->getIO ());
   }
 
   /**
@@ -64,12 +65,29 @@ class Init
    * (internal use)
    * Runs the specified console command from within a Composer execution context.
    *
-   * @param string   $name Command name.
-   * @param string[] $args Command arguments.
+   * @param string                  $name Command name.
+   * @param string[]                $args Command arguments.
+   * @param Composer\IO\IOInterface $io
    * @return int
    */
-  static private function runCommand ($name, $args = [])
+  static private function runCommand ($name, $args = [], $io = null)
   {
+    if ($io) {
+      switch (true) {
+        case $io->isVerbose ():
+          $verbose = ConsoleOutput::VERBOSITY_VERBOSE;
+          break;
+        case $io->isVeryVerbose ():
+          $verbose = ConsoleOutput::VERBOSITY_VERY_VERBOSE;
+          break;
+        case $io->isDebug ():
+          $verbose = ConsoleOutput::VERBOSITY_DEBUG;
+          break;
+        default:
+          $verbose = ConsoleOutput::VERBOSITY_NORMAL;
+      }
+      $out = new ConsoleOutput($verbose, $io->isDecorated ());
+    }
     $root = dirname (dirname (__DIR__));
     require "$root/packages/autoload.php";
     Init::init ();
