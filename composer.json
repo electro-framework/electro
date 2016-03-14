@@ -24,7 +24,7 @@
     "bin-dir": "bin"
   },
   "minimum-stability": "dev",
-  "prefer-stable": false,
+  "prefer-stable": true,
   "require": {
     "php": ">=5.6",
     "selenia/framework": "1.x-dev"

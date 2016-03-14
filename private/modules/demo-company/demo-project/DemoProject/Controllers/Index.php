@@ -5,8 +5,7 @@ use Selenia\Http\Components\PageComponent;
 
 class Index extends PageComponent
 {
-  protected function render ()
-  { ?>
+  public $template = <<<'HTML'
     <Content of="main">
 
       <Jumbotron style="border-bottom:1px solid #ddd">
@@ -28,7 +27,6 @@ class Index extends PageComponent
     </Content>
 
     <Include view="layouts/main.html"/>
-    <?php
-  }
+HTML;
 
 }

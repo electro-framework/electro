@@ -46,7 +46,7 @@ class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
       ->provideMacros ()
       ->provideViews ()
       ->registerRouter ($this)
-      ->provideNavigation ($this);
+      ->registerNavigation ($this);
   }
 
   function defineNavigation (NavigationInterface $navigation)

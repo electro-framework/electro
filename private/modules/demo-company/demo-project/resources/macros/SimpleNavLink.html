@@ -2,7 +2,7 @@
   <Param name="href" type="string"/>
   <Param name="label" type="string"/>
 
-  <If the="{{ virtualUrl }}" is="{{ @href }}">
+  <If the="{{ navigation.currentLink }}" is="{{ @href }}">
     <li class="active">
       <Else>
     <li>

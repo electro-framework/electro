@@ -4,6 +4,7 @@ namespace AppKernel\Config;
 use Selenia\Application;
 use Selenia\Debugging\Middleware\WebConsoleMiddleware;
 use Selenia\ErrorHandling\Middleware\ErrorHandlingMiddleware;
+use Selenia\FileServer\Middleware\ContentServerMiddleware;
 use Selenia\FileServer\Middleware\FileServerMiddleware;
 use Selenia\Http\Middleware\CompressionMiddleware;
 use Selenia\Http\Middleware\CsrfMiddleware;
@@ -14,6 +15,7 @@ use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
 use Selenia\Routing\Middleware\AutoRoutingMiddleware;
+use Selenia\Routing\Middleware\PermalinksMiddleware;
 use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppKernelModule implements ModuleInterface
@@ -23,14 +25,16 @@ class AppKernelModule implements ModuleInterface
     if ($app->isWebBased)
       $middleware
         ->set ([
+          ContentServerMiddleware::class,
           FileServerMiddleware::class,
-          when ($app->compressOutput, CompressionMiddleware::class),
+          when (!$app->debugMode, CompressionMiddleware::class),
           WebConsoleMiddleware::class,
+          TranslationMiddleware::class,
           ErrorHandlingMiddleware::class,
           SessionMiddleware::class,
           CsrfMiddleware::class,
           LanguageMiddleware::class,
-          TranslationMiddleware::class,
+          PermalinksMiddleware::class .
           'router' => ApplicationRouterInterface::class,
           when ($app->debugMode, AutoRoutingMiddleware::class),
           URLNotFoundMiddleware::class,
