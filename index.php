@@ -10,7 +10,10 @@ use Selenia\Core\WebApplication\WebApplication;
 //ini_set ('error_log', __DIR__ . '/error.log');
 
 // Start the class autoloader.
-require "private/packages/autoload.php";
+if ((@include "private/packages/autoload.php") === false) {
+  echo "<h3>Project not installed</h3>Please run <b><kbd>composer install</kbd></b> on the command line.";
+  exit;
+}
 
 // Setup the app.
 Init::init ();
