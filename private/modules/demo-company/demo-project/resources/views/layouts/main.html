@@ -1,12 +1,12 @@
 <Content of="master">
 
   <body>
-    {!! statusMessage !!}
+    {statusMessage|*}
 
     <form method="post" onsubmit="return Form_onSubmit()">
       <input type="hidden" name="_action">
 
-      {!! #main !!}
+      {#main|*}
 
     </form>
     <Include scripts/>

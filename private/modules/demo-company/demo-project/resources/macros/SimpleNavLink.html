@@ -2,12 +2,12 @@
   <Param name="href" type="string"/>
   <Param name="label" type="string"/>
 
-  <If the="{{ navigation.currentLink }}" is="{{ @href }}">
+  <If {navigation.currentLink==@href}">
     <li class="active">
       <Else>
     <li>
       </Else>
   </If>
-  <a href="{{ @href }}">{{ @label }}</a></li>
+  <a href="{@href}">{@label}</a></li>
 
 </Macro>
