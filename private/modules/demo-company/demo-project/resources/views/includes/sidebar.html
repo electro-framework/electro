@@ -5,14 +5,8 @@
 
   <div class="list-group">
     <!-- A Repeater example with conditional blocks and overlapping Matisse/HTML tags -->
-    <Repeat count="9" as="index">
-      <If {index==1}>
-        <a href="#" class="list-group-item active">
-          <Else>
-            <a href="#" class="list-group-item">
-          </Else>
-      </If>
-      Link {index}</a>
-    </Repeat>
+    <For each=index count=9>
+      <a href="#" class="list-group-item {index==1|then 'active'}">Link {index}</a>
+    </For>
   </div>
 </div>
