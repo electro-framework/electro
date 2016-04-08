@@ -1,7 +1,7 @@
 <Macro name="NavLink">
   <Param name="link" type="data"/>
 
-  <li {@link.isSelected | then(class=active)}>
+  <li {@link.isSelected | then 'class=active2'}>
     <a href="{@link}">{@link.title}</a>
   </li>
 
