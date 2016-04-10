@@ -5,8 +5,11 @@
 
 <Content of="mainContent">
   <!-- Repeating blocks of content with a macro is easy! -->
-  <Widget title="Page 2" link="{navigation.page2}"/>
-  <Widget/>
+  <Widget title="Page 2" link="{navigation.page2.url}"/>
+  <Widget title="Title 1">
+    <h4>Custom content</h4>
+    Hello <b>World</b>
+  </Widget>
   <Widget/>
   <Widget/>
   <Widget/>
@@ -17,10 +20,8 @@
   <p class="lead">My Sidebar content</p>
 </Content>
 
-<Content of="scripts">
-  <script>
-    console.log ("My page-specific script");
-  </script>
-</Content>
+<Script>
+  console.log ("My page-specific script");
+</Script>
 
 <Include view="layouts/demo.html"/>
