@@ -50,7 +50,7 @@ class Init
   static function runUninstallCommand ($event)
   {
     $package = $event->getOperation ()->getPackage ();
-    return self::runCommand ('module:clean-up', ['-s', $package->getName ()], $event);
+    return self::runCommand ('module:cleanup', ['-s', $package->getName ()], $event);
   }
 
   /**
@@ -61,7 +61,7 @@ class Init
    */
   static function runUpdateCommand ($event)
   {
-    return self::runCommand ('module:refresh', [], $event);
+    return self::runCommand ('registry:recheck', [], $event);
   }
 
   /**
