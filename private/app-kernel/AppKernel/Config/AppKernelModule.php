@@ -1,6 +1,8 @@
 <?php
 namespace AppKernel\Config;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Application;
 use Selenia\Debugging\Middleware\WebConsoleMiddleware;
 use Selenia\ErrorHandling\Middleware\ErrorHandlingMiddleware;
@@ -20,14 +22,24 @@ use Selenia\Sessions\Middleware\SessionMiddleware;
 
 class AppKernelModule implements ModuleInterface
 {
-  function boot (Application $app, ApplicationMiddlewareInterface $middleware)
+  function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
+  {
+    // Your app-specific configuration code goes here.
+
+    return $next();
+  }
+
+  function boot (Application $app, ApplicationMiddlewareInterface $middleware, $debugMode, $debugConsole)
   {
     if ($app->isWebBased)
       $middleware
         ->set ([
+          // Uncomment the following line to enable this class as a middleware.
+          // $this,
           ContentServerMiddleware::class,
           FileServerMiddleware::class,
-          when (!$app->debugMode, CompressionMiddleware::class),
+          when (!$debugMode, CompressionMiddleware::class),
+          when ($debugConsole, WebConsoleMiddleware::class),
           WebConsoleMiddleware::class,
           TranslationMiddleware::class,
           ErrorHandlingMiddleware::class,
@@ -36,7 +48,7 @@ class AppKernelModule implements ModuleInterface
           LanguageMiddleware::class,
           PermalinksMiddleware::class .
           'router' => ApplicationRouterInterface::class,
-          when ($app->debugMode, AutoRoutingMiddleware::class),
+          when ($debugMode, AutoRoutingMiddleware::class),
           URLNotFoundMiddleware::class,
         ]);
   }
