@@ -1,8 +1,7 @@
 {
-  "name": "selenia/selenia",
-  "description": "The Selenia PHP framework",
+  "name": "electro/electro",
+  "description": "The Electro PHP Web Framework",
   "keywords": [
-    "selenia",
     "framework"
   ],
   "license": "MIT",
@@ -27,13 +26,13 @@
   "prefer-stable": true,
   "require": {
     "php": ">=5.6",
-    "selenia/framework": "1.x-dev"
+    "electro/framework": "dev-master"
   },
   "extra": {
     "merge-plugin": {
       "include": [
         "private/app/composer.json",
-        "private/packages/selenia/framework/subsystems/*/composer.json",
+        "private/packages/electro/framework/subsystems/*/composer.json",
         "private/modules/*/*/composer.json"
       ],
       "recurse": true,
