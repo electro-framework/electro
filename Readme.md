@@ -1,14 +1,15 @@
-# Selenia Framework
+# electro framework
 
-> Selenia is a web framework for the rapid development of web applications and websites using the PHP language.
+> *Electro* is a modern PHP web framework for developing web applications and websites.
 
-**This repository provides a standard installation of the framework. Use it as a starting point for developing a project based on Selenia.**
+**This repository provides a standard installation of the framework.
+Use it as a starting point for developing a project based on Electro.**
 
 ## Installation
 
 #### Runtime requirements
 
-- PHP >= 5.4 < 7.0
+- PHP >= 5.6
 - Composer
 - PHP Extensions:
   - PDO
@@ -18,11 +19,11 @@
 
 #### Install Composer
 
-Selenia utilises [Composer](http://getcomposer.org) to manage its dependencies. So, before using Selenia, you will need to make sure you have Composer installed on your machine.
+Electro uses [Composer](http://getcomposer.org) to manage its dependencies. So, before using Electro, you will need to make sure you have Composer installed on your machine.
 
 #### Configure your environment
 
-You should add `./bin` to your environment's PATH variable, so that Selenia commands can be run easily on the terminal.
+You should add `./bin` to your environment's PATH variable, so that Electro commands can be run easily on the terminal.
 > Examples on the framework's documentation and Readme files assume your PATH is configured this way. Failure to do this will cause errors when running the examples.
 
 ##### Configuring the path
@@ -43,12 +44,12 @@ Add this to your *shell environment*:
 
 On the parent folder where the project folder will be created, issue the `composer create-project` command on your terminal.
 
-For example, this will install a working Selenia prototype project into the `your-project-name` folder:
+For example, this will install a working Electro prototype project into the `your-project-name` folder:
 
 
-```shell
+```bash
 cd parent-folder
-composer create-project -s dev selenia/selenia your-project-name
+composer create-project -s dev electro/electro your-project-name
 ```
 
 Upon completing the installation, Composer may ask you:
@@ -61,7 +62,7 @@ You should type `y` to remove the Git history. You may then create your own VCS 
 
 For example, to create an empty Git repository, type:
 
-```shell
+```bash
 git init
 ```
 
@@ -85,12 +86,12 @@ You should see a welcome page.
 
 #### Developing
 
-Besides using the Composer commands to install/uninstall/update PHP packages and Selenia plugins, you can also use the Selenia CLI (Command-Line Interface).
+Besides using the Composer commands to install/uninstall/update PHP packages and Electro plugins, you can also use the Electro CLI (Command-Line Interface).
 
 Type:
 
-```shell
-selenia
+```bash
+workman
 ```
 
 You'll get a list of available commands.
@@ -98,7 +99,7 @@ Refer to the framework documentation for an explanation of each available comman
 
 ## Contributing
 
-Selenia is an open source, community-driven project. We welcome your contribution, either by submitting [pull-requests](https://github.com/selenia-framework/selenia/pulls) or by reporting issues on the [issue tracker](https://github.com/selenia-framework/selenia/issues).
+Electro is an open source, community-driven project. We welcome your contribution, either by submitting [pull-requests](https://github.com/electro-framework/electro/pulls) or by reporting issues on the [issue tracker](https://github.com/electro-framework/electro/issues).
 
 We don't have a formal contribution guide at this time. We're working on that.
 
@@ -109,6 +110,6 @@ All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Selenia framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Electro framework is open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-**Selenia framework** - Copyright &copy; 2015 Impactwave, Lda.
+**Electro framework** - Copyright &copy; Cláudio Silva and Impactwave, Lda.
