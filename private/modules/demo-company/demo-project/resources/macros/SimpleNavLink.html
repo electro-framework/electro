@@ -1,9 +1,0 @@
-<Macro name="SimpleNavLink">
-  <Param name="href" type="string"/>
-  <Param name="label" type="string"/>
-
-  <li {navigation.currentLink.url==@href | then 'class=active'}>
-    <a href="{@href}">{@label}</a>
-  </li>
-
-</Macro>
