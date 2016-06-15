@@ -6,11 +6,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Application;
 use Selenia\Core\Assembly\Services\ModuleServices;
-use Selenia\Http\Components\PageComponent;
 use Selenia\Interfaces\Http\RouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Interfaces\Navigation\NavigationInterface;
 use Selenia\Interfaces\Navigation\NavigationProviderInterface;
+use Selenia\Plugins\Matisse\Components\Base\PageComponent;
 
 class DemoProjectModule implements ModuleInterface, NavigationProviderInterface
 {

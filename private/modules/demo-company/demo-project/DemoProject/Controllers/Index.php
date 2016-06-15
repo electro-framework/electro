@@ -1,7 +1,7 @@
 <?php
 namespace DemoCompany\DemoProject\Controllers;
 
-use Selenia\Http\Components\PageComponent;
+use Selenia\Plugins\Matisse\Components\Base\PageComponent;
 
 class Index extends PageComponent
 {

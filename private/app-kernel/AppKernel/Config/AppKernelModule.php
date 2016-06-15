@@ -16,7 +16,7 @@ use Selenia\Interfaces\Http\Shared\ApplicationRouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
-use Selenia\Routing\Middleware\AutoRoutingMiddleware;
+use Selenia\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
 use Selenia\Routing\Middleware\PermalinksMiddleware;
 use Selenia\Sessions\Middleware\SessionMiddleware;
 
