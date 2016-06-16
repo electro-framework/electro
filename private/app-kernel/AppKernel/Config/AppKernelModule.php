@@ -1,6 +1,7 @@
 <?php
 namespace AppKernel\Config;
 
+use AppKernel\WelcomeMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Selenia\Application;
@@ -16,7 +17,7 @@ use Selenia\Interfaces\Http\Shared\ApplicationRouterInterface;
 use Selenia\Interfaces\ModuleInterface;
 use Selenia\Localization\Middleware\LanguageMiddleware;
 use Selenia\Localization\Middleware\TranslationMiddleware;
-use Selenia\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
+//use Selenia\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
 use Selenia\Routing\Middleware\PermalinksMiddleware;
 use Selenia\Sessions\Middleware\SessionMiddleware;
 
@@ -48,7 +49,8 @@ class AppKernelModule implements ModuleInterface
           LanguageMiddleware::class,
           PermalinksMiddleware::class .
           'router' => ApplicationRouterInterface::class,
-          when ($debugMode, AutoRoutingMiddleware::class),
+//          when ($debugMode, AutoRoutingMiddleware::class),
+          WelcomeMiddleware::class,
           URLNotFoundMiddleware::class,
         ]);
   }
