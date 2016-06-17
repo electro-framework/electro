@@ -3,7 +3,7 @@ namespace AppKernel;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Selenia\Interfaces\Http\RequestHandlerInterface;
+use Electro\Interfaces\Http\RequestHandlerInterface;
 
 class WelcomeMiddleware implements RequestHandlerInterface
 {

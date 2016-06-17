@@ -4,22 +4,22 @@ namespace AppKernel\Config;
 use AppKernel\WelcomeMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Selenia\Application;
-use Selenia\Debugging\Middleware\WebConsoleMiddleware;
-use Selenia\ErrorHandling\Middleware\ErrorHandlingMiddleware;
-use Selenia\FileServer\Middleware\ContentServerMiddleware;
-use Selenia\FileServer\Middleware\FileServerMiddleware;
-use Selenia\Http\Middleware\CompressionMiddleware;
-use Selenia\Http\Middleware\CsrfMiddleware;
-use Selenia\Http\Middleware\URLNotFoundMiddleware;
-use Selenia\Interfaces\Http\Shared\ApplicationMiddlewareInterface;
-use Selenia\Interfaces\Http\Shared\ApplicationRouterInterface;
-use Selenia\Interfaces\ModuleInterface;
-use Selenia\Localization\Middleware\LanguageMiddleware;
-use Selenia\Localization\Middleware\TranslationMiddleware;
-//use Selenia\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
-use Selenia\Routing\Middleware\PermalinksMiddleware;
-use Selenia\Sessions\Middleware\SessionMiddleware;
+use Electro\Application;
+use Electro\Debugging\Middleware\WebConsoleMiddleware;
+use Electro\ErrorHandling\Middleware\ErrorHandlingMiddleware;
+use Electro\FileServer\Middleware\ContentServerMiddleware;
+use Electro\FileServer\Middleware\FileServerMiddleware;
+use Electro\Http\Middleware\CompressionMiddleware;
+use Electro\Http\Middleware\CsrfMiddleware;
+use Electro\Http\Middleware\URLNotFoundMiddleware;
+use Electro\Interfaces\Http\Shared\ApplicationMiddlewareInterface;
+use Electro\Interfaces\Http\Shared\ApplicationRouterInterface;
+use Electro\Interfaces\ModuleInterface;
+use Electro\Localization\Middleware\LanguageMiddleware;
+use Electro\Localization\Middleware\TranslationMiddleware;
+//use Electro\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
+use Electro\Routing\Middleware\PermalinksMiddleware;
+use Electro\Sessions\Middleware\SessionMiddleware;
 
 class AppKernelModule implements ModuleInterface
 {

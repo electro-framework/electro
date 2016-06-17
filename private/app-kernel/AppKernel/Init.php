@@ -2,8 +2,8 @@
 namespace AppKernel;
 
 use Dotenv\Dotenv;
-use Selenia\Core\ConsoleApplication\ConsoleApplication;
-use Selenia\Core\DependencyInjection\Injector;
+use Electro\Core\ConsoleApplication\ConsoleApplication;
+use Electro\Core\DependencyInjection\Injector;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\NullOutput;
