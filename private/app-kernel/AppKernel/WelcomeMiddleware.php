@@ -15,6 +15,8 @@ class WelcomeMiddleware implements RequestHandlerInterface
 <!doctype html>
 <html>
 <head>
+  <title>ELECTRO</title>
+  <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
   <style>
 body {
   margin: 0;
