@@ -47,6 +47,9 @@
     }
   },
   "scripts": {
+    "post-create-project-cmd": [
+      "AppKernel\\Init::runInitCommand"
+    ],
     "post-install-cmd": [
       "AppKernel\\Init::runInitCommand"
     ],
