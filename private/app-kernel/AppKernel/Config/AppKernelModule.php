@@ -1,6 +1,7 @@
 <?php
 namespace AppKernel\Config;
 
+//use Electro\Authentication\Middleware\AuthenticationMiddleware;
 use AppKernel\WelcomeMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,7 +18,6 @@ use Electro\Interfaces\Http\Shared\ApplicationRouterInterface;
 use Electro\Interfaces\ModuleInterface;
 use Electro\Localization\Middleware\LanguageMiddleware;
 use Electro\Localization\Middleware\TranslationMiddleware;
-//use Electro\Plugins\Matisse\Middleware\AutoRoutingMiddleware;
 use Electro\Routing\Middleware\PermalinksMiddleware;
 use Electro\Sessions\Middleware\SessionMiddleware;
 
@@ -41,15 +41,14 @@ class AppKernelModule implements ModuleInterface
           FileServerMiddleware::class,
           when (!$debugMode, CompressionMiddleware::class),
           when ($debugConsole, WebConsoleMiddleware::class),
-          WebConsoleMiddleware::class,
           TranslationMiddleware::class,
           ErrorHandlingMiddleware::class,
           SessionMiddleware::class,
+//          AuthenticationMiddleware::class,
           CsrfMiddleware::class,
           LanguageMiddleware::class,
-          PermalinksMiddleware::class .
+          PermalinksMiddleware::class,
           'router' => ApplicationRouterInterface::class,
-//          when ($debugMode, AutoRoutingMiddleware::class),
           WelcomeMiddleware::class,
           URLNotFoundMiddleware::class,
         ]);
