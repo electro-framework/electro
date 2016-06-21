@@ -3,6 +3,7 @@ namespace AppKernel\Config;
 
 //use Electro\Authentication\Middleware\AuthenticationMiddleware;
 use AppKernel\WelcomeMiddleware;
+use Electro\Navigation\Middleware\NavigationMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Electro\Application;
@@ -48,6 +49,7 @@ class AppKernelModule implements ModuleInterface
           CsrfMiddleware::class,
           LanguageMiddleware::class,
           PermalinksMiddleware::class,
+          NavigationMiddleware::class,
           'router' => ApplicationRouterInterface::class,
           WelcomeMiddleware::class,
           URLNotFoundMiddleware::class,
