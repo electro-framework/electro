@@ -41,7 +41,8 @@ body {
 #intro .lead {
   font-size: 24px;
   font-weight: 100;
-  margin-top:0
+  margin-top:0;
+  letter-spacing: 2px;
 }
 
 p {
@@ -56,7 +57,7 @@ p {
     <h1>ELECTRO</h1>
 
     <p class="lead">
-      A modern PHP web framework
+      a solid foundation for modern PHP web development
     </p>
     
   </div>
