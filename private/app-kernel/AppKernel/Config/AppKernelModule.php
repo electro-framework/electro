@@ -50,7 +50,7 @@ class AppKernelModule implements ModuleInterface
           PermalinksMiddleware::class,
           'router' => ApplicationRouterInterface::class,
           WelcomeMiddleware::class,
-          URLNotFoundMiddleware::class,
+          'notFound' => URLNotFoundMiddleware::class,
         ]);
   }
 
