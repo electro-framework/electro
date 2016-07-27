@@ -43,21 +43,21 @@
   },
   "autoload": {
     "psr-4": {
-      "AppKernel\\": "private/app-kernel/AppKernel"
+      "App\\": "private/App"
     }
   },
   "scripts": {
     "post-create-project-cmd": [
-      "AppKernel\\Init::runInitCommand"
+      "App\\Init::runInitCommand"
     ],
     "post-install-cmd": [
-      "AppKernel\\Init::runInitCommand"
+      "App\\Init::runInitCommand"
     ],
     "post-update-cmd": [
-      "AppKernel\\Init::runUpdateCommand"
+      "App\\Init::runUpdateCommand"
     ],
     "pre-package-uninstall": [
-      "AppKernel\\Init::runUninstallCommand"
+      "App\\Init::runUninstallCommand"
     ]
   }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace AppKernel;
+namespace App;
 
 use Dotenv\Dotenv;
 use Electro\Core\ConsoleApplication\ConsoleApplication;
@@ -61,7 +61,7 @@ class Init
    */
   static function runUpdateCommand ($event)
   {
-    return self::runCommand ('registry:recheck', [], $event);
+    return self::runCommand ('module:recheck', [], $event);
   }
 
   /**

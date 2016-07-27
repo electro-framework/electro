@@ -1,5 +1,5 @@
 <?php
-use AppKernel\Init;
+use App\Init;
 use Electro\Core\DependencyInjection\Injector;
 use Electro\Core\WebApplication\WebApplication;
 
