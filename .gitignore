@@ -8,6 +8,7 @@
 /private/storage
 /bin/*
 /lib
+/modules
 
 # Ignore specific files or folders anywhere.
 
