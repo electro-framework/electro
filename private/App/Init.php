@@ -21,7 +21,7 @@ class Init
    */
   static function init ()
   {
-    $root = dirname (dirname (dirname (__DIR__)));
+    $root = dirname (dirname (__DIR__));
     if (file_exists ("$root/.env")) {
       $dotenv = new Dotenv ($root);
       $dotenv->load ();
@@ -105,7 +105,7 @@ class Init
         $output = new ConsoleOutput($verbose, $io->isDecorated ());
       }
     }
-    $root = dirname (dirname (__DIR__));
+    $root = dirname (__DIR__);
     require "$root/packages/autoload.php";
     Init::init ();
     $consoleApp = ConsoleApplication::make (new Injector);
