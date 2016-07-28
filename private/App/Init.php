@@ -61,7 +61,7 @@ class Init
    */
   static function runUpdateCommand ($event)
   {
-    return self::runCommand ('module:recheck', [], $event);
+    return self::runCommand ('module:refresh', [], $event);
   }
 
   /**
