@@ -39,7 +39,6 @@
   "extra": {
     "merge-plugin": {
       "include": [
-        "private/app/composer.json",
         "private/packages/electro/framework/subsystems/*/composer.json",
         "private/modules/*/*/composer.json"
       ],
