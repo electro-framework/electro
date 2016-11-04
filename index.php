@@ -1,4 +1,4 @@
 <?php
 require (__DIR__ . '/private/src/Bootloader.php');
 
-App\Bootloader::make ()->boot (Electro\Profiles\StandardWebProfile::class);
+App\Bootloader::make ()->boot (new Electro\Profiles\WebProfile);

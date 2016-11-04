@@ -2,8 +2,8 @@
 namespace App;
 
 use Electro\ConsoleApplication\ConsoleApplication;
-use Electro\DependencyInjection\Injector;
 use Electro\Interfaces\BootloaderInterface;
+use Electro\Interfaces\DI\InjectorInterface;
 use Electro\Interfaces\KernelInterface;
 use Electro\Interfaces\ProfileInterface;
 use Electro\Profiles\ConsoleProfile;
@@ -49,7 +49,7 @@ class Bootloader
    *
    * #### Example
    * You may run a web application using a single statement:
-   *       App\Bootloader::make ()->boot (Electro\Profiles\StandardWebProfile::class);
+   *       App\Bootloader::make ()->boot (Electro\Profiles\WebProfile::class);
    * Of course, for this example to work, a `require` statement for `Bootloader.php` would be needed prior to the
    * statement, as the autoloader is not yet available at the time the statement runs.
    *
@@ -97,7 +97,6 @@ class Bootloader
   }
 
   /**
-   * @internal
    * Runs a console command from within a Composer execution context.
    *
    * @param string                       $name Command name.
@@ -118,23 +117,35 @@ class Bootloader
   /**
    * Boots up the framework and runs the application.
    *
-   * @param string   $profileClass The configuration profile's fully qualified class name.
-   * @param int      $urlDepth     How many URL segments should be stripped when calculating the application's root
-   *                               URL.
-   *                               Use it when booting a sub-application from an index.php on a sub-directory of the
-   *                               main application.
-   * @param callable $onStartUp    If specified, the callback will be invoked right before the kernel boots up. It will
-   *                               be given the kernel instance as an argument, so that you can use this to register
-   *                               listeners for kernel events, similar to what {@see ModuleInterface::startUp} does for
-   *                               modules.
+   * @param ProfileInterface $profile   A configuration profile instance.
+   * @param int              $urlDepth  How many URL segments should be stripped when calculating the application's root
+   *                                    URL.
+   *                                    Use it when booting a sub-application from an index.php on a sub-directory of
+   *                                    the main application.
+   * @param callable         $onStartUp If specified, the callback will be invoked right before the kernel boots up. It
+   *                                    will be given the kernel instance as an argument, so that you can use this to
+   *                                    register listeners for kernel events, similar to what
+   *                                    {@seeModuleInterface::startUp} does for modules.
    * @return int Exit status code. Only meaningful for console applications.
    */
-  function boot ($profileClass, $urlDepth = 0, callable $onStartUp = null)
+  function boot (ProfileInterface $profile, $urlDepth = 0, callable $onStartUp = null)
   {
-    /** @var ProfileInterface $profileClass */
-    $class = $profileClass::getBootloaderClass ();
+    // Initialize the injector with services defined on the profile.
+
+    /** @var InjectorInterface $injector */
+    $injector = $profile->getInjector ();
+    $injector
+      ->share ($injector)
+      ->alias (InjectorInterface::class, get_class ($injector))
+      ->share ($profile)
+      ->alias (ProfileInterface::class, get_class ($profile))
+      ->alias (KernelInterface::class, $profile->getKernelClass ());
+
+    // Create and run the bootloader defined by the profile.
+
+    $bootloaderClass = $profile->getBootloaderClass ();
     /** @var BootloaderInterface $bootloader */
-    $bootloader = new $class (new Injector, $profileClass);
+    $bootloader = new $bootloaderClass ($injector);
     return $bootloader->boot ($this->root, $urlDepth, $onStartUp);
   }
 
