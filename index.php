@@ -1,26 +1,4 @@
 <?php
-use App\Init;
-use Electro\Core\DependencyInjection\Injector;
-use Electro\Core\WebApplication\WebApplication;
+require (__DIR__ . '/private/src/Bootloader.php');
 
-/*
- * Temporarily uncomment the following line for troubleshooting on restricted hosting environments.
- * It enables error logging to a file the project's root directory.
-*/
-//ini_set ('error_log', __DIR__ . '/error.log');
-
-// Start the class autoloader.
-if ((@include "private/packages/autoload.php") === false) {
-  echo "<h3>Project not installed</h3>Please run <b><kbd>composer install</kbd></b> on the command line.";
-  exit;
-}
-
-// Setup the app.
-Init::init ();
-
-/*
- * Launch the application on HTTP request handling mode.
- * You can customize the Dependency Injector the framework uses by changing the fist argument of
- * the class constructor below.
- */
-(new WebApplication (new Injector))->run (__DIR__);
+App\Bootloader::make ()->boot (Electro\Profiles\StandardWebProfile::class);
