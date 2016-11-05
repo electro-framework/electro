@@ -34,18 +34,8 @@
   "prefer-stable": true,
   "require": {
     "php": ">=5.6",
-    "electro/framework": "dev-master"
-  },
-  "extra": {
-    "merge-plugin": {
-      "include": [
-        "private/packages/electro/framework/subsystems/*/composer.json",
-        "private/modules/*/*/composer.json"
-      ],
-      "recurse": true,
-      "replace": false,
-      "merge-extra": true
-    }
+    "electro/framework": "dev-master",
+    "profiles/standard": "*"
   },
   "autoload": {
     "psr-4": {
@@ -65,5 +55,19 @@
     "pre-package-uninstall": [
       "App\\Bootloader::runUninstallCommand"
     ]
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "private/packages/electro/framework/subsystems/*"
+    },
+    {
+      "type": "path",
+      "url": "private/packages/electro/framework/profiles/*"
+    },
+    {
+      "type": "path",
+      "url": "private/modules/*/*"
+    }
+  ]
 }
