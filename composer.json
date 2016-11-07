@@ -41,18 +41,11 @@
     }
   },
   "scripts": {
-    "post-create-project-cmd": [
-      "App\\Bootloader::runInitCommand"
-    ],
-    "post-install-cmd": [
-      "App\\Bootloader::runInitCommand"
-    ],
-    "post-update-cmd": [
-      "App\\Bootloader::runUpdateCommand"
-    ],
-    "pre-package-uninstall": [
-      "App\\Bootloader::runUninstallCommand"
-    ]
+    "pre-update-cmd": "bin/install go",
+    "post-create-project-cmd": "App\\Bootloader::runInitCommand",
+    "post-install-cmd": "App\\Bootloader::runInitCommand",
+    "post-update-cmd": "App\\Bootloader::runUpdateCommand",
+    "pre-package-uninstall": "App\\Bootloader::runUninstallCommand"
   },
   "repositories": [
     {

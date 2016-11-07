@@ -28,3 +28,4 @@ Thumbs.db
 # Preserve folders with .gitkeep files.
 
 !**/.gitkeep
+!bin/install

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+if [ -f private/packages/electro ]; then
+  echo "
+The application is already installed.
+"
+  exit
+fi
+echo "
+Installing application packages...
+
+"
+git clone https://github.com/electro-framework/framework private/packages/electro/framework
+
+# If running from the command line, run Composer now, otherwise this is being called by Composer so do nothing else
+if [ "$1" == "" ]; then
+  composer install
+fi
