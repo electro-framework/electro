@@ -41,7 +41,8 @@
     }
   },
   "scripts": {
-    "pre-update-cmd": "bin/install go",
+    "post-root-package-install": "bin/install go",
+    "pre-install-cmd": "bin/install go",
     "post-create-project-cmd": "App\\Bootloader::runInitCommand",
     "post-install-cmd": "App\\Bootloader::runInitCommand",
     "post-update-cmd": "App\\Bootloader::runUpdateCommand",

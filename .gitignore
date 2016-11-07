@@ -12,7 +12,6 @@
 
 # Ignore specific files or folders anywhere.
 
-composer.lock
 node_modules
 .env
 bower.json
