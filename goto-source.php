@@ -6,38 +6,16 @@ $feedbackElem = "parent.document.getElementById ('__feedback')";
 
 echo "<script>$feedbackElem.style.display = 'none'</script>";
 
-$url  = 'http://localhost:63342';
-$data = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
-<methodCall>
-  <methodName>fileOpener.openAndNavigate</methodName>
-  <params>
-   <param><value><string>$file</string></value></param>
-   <param><value><int>$line</int></value></param>
-   <param><value><int>$col</int></value></param>
-  </params>
-</methodCall>
-XML;
+exec ("phpstorm --line $line $file", $out, $status);
 
+if ($status)
+  exec ("/usr/local/bin/phpstorm --line $line $file", $out, $status);
 
-// use key 'http' even if you send the request to https://...
-$options = [
-  'http' => [
-    'header'  => "Content-type: application/xml\r\n",
-    'method'  => 'POST',
-    'content' => $data
-  ]
-];
-$context = stream_context_create ($options);
-$result  = file_get_contents ($url, false, $context);
-
-if ($result !=
-    '<?xml version="1.0"?><methodResponse><params><param><value><boolean>1</boolean></value></param></params></methodResponse>'
-): ?>
+if ($status): ?>
   <script>
     <?=$feedbackElem?>.innerHTML =
-      'Unable to open the file for editing on PHPStorm / IDEA; either the file was not found or the IDE is not running.<p>File: <?=$file?>';
-    <?=$feedbackElem?>.style.display = 'block'
+      '<h4>Unable to open the file for editing on PHPStorm / IDEA</h4><p><b>Hint:</b> have you run <code>Tools -> Create Command-line Launcher...</code> yet?<p><b>Hint:</b> try installing the script at <code>/usr/local/bin</code> (on Mac or Linux)';
+    <?=$feedbackElem?>.style.display = 'block';
   </script><?php
   exit;
 endif;
