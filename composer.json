@@ -23,7 +23,6 @@
       "electro/*": "source",
       "electro-modules/*": "source",
       "selenia/*": "source",
-      "selenia-modules/*": "source",
       "php-kit/*": "source",
       "*": "dist"
     },
