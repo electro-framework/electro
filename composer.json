@@ -19,13 +19,7 @@
   ],
   "type": "project",
   "config": {
-    "preferred-install": {
-      "electro/*": "source",
-      "electro-modules/*": "source",
-      "selenia/*": "source",
-      "php-kit/*": "source",
-      "*": "dist"
-    },
+    "preferred-install": "dist",
     "vendor-dir": "private/packages",
     "bin-dir": "bin"
   },
