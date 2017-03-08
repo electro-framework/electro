@@ -23,10 +23,10 @@
     "vendor-dir": "private/packages",
     "bin-dir": "bin"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "electro/framework": "v0.10.x-dev"
+    "electro/framework": "^0.10"
   },
   "autoload": {
     "psr-4": {
