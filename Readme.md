@@ -49,21 +49,7 @@ For example, this will install a working Electro prototype project into the `you
 
 ```bash
 cd parent-folder
-composer create-project -s dev electro/electro your-project-name
-```
-
-Upon completing the installation, Composer may ask you:
-
-```
-Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
-```
-
-You should type `y` to remove the Git history. You may then create your own VCS repository to hold your project.
-
-For example, to create an empty Git repository, type:
-
-```bash
-git init
+composer create-project electro/electro your-project-name
 ```
 
 #### Follow the Configuration Wizard
@@ -78,11 +64,23 @@ Answer the Wizard's questions to customize the application to your needs.
 
 After installation, the project should be ready to run.
 
-> You'll need a local Apache web server to run it.
+It is recommended to have a local Apache web server to run it. Alternatively, you may use the built-in development server (see below).
 
 Open the localhost URL corresponding to the project's folder on your browser.
 
 You should see a welcome page.
+
+#### Using the built-in development server
+
+The framework comes with its own built-in web server, suitable for development only. If you do not whish to install Apache on your computer, you may use it instead.
+
+To start the server type:
+
+```bash
+workman server:start
+```
+
+Then you may open the welcome page on your browser at `http://localhost:8000`
 
 #### Developing
 
@@ -101,7 +99,11 @@ Refer to the framework documentation for an explanation of each available comman
 
 Electro is an open source, community-driven project. We welcome your contribution, either by submitting [pull-requests](https://github.com/electro-framework/electro/pulls) or by reporting issues on the [issue tracker](https://github.com/electro-framework/electro/issues).
 
-We don't have a formal contribution guide at this time. We're working on that.
+We don't have a formal contribution guide **at this time**.
+
+Meanwhile, all contributions to the project, when accepted, will automatically transfer copyright to the project's copyright holders mentioned below (if not explicitly, it will be implicit) and they will be published under the same license as the project's license (see licensing details below).
+
+If you are not confortable with these terms, please do not contribute. If you contribute, you are accepting these terms.
 
 ## Security Vulnerabilities
 
