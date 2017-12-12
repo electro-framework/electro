@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+
+  # Prevent infinite loop
+  RewriteRule ^index\.php - [L]
+
+  # Split the REQUEST_URI into a BASE_URI and a PATH.
+  RewriteRule ^(.*) - [E=PATH:/$1]
+  RewriteCond %{REQUEST_URI}%{ENV:PATH} ^(.*?)(.+)\2$
+  RewriteRule ^ - [E=BASE_URI:%1]
+
+  # Call the front-controller.
+  RewriteRule ^ %{ENV:BASE_URI}/index.php [L]
+
+</IfModule>
