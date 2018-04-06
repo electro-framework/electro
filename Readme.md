@@ -7,7 +7,7 @@ Use it as a starting point for developing a project based on Electro.**
 
 ## Installation
 
-#### Runtime requirements
+### Runtime requirements
 
 - PHP >= 5.6
 - Composer
@@ -17,46 +17,41 @@ Use it as a starting point for developing a project based on Electro.**
   - Mcrypt
   - GD2
 
-#### Development-time requirements
+### Development-time requirements
 
-- Bower
 - Node.js + npm
 
-#### Install Composer
+### 1. Install Composer
 
 Electro uses [Composer](http://getcomposer.org) to manage its dependencies. So, before using Electro, you will need to make sure you have Composer installed on your machine.
 
 [Composer installation instructions](https://getcomposer.org/doc/00-intro.md#system-requirements).
 
-#### Install Bower (optional)
+### 2. Install Node.js
 
-> Bower is only needed at development-time.
+Node.js is required **during development**, because Electro requires some tools that are provided as Node packages.
 
-Electro provides an integration between Composer and Bower that allows Composer to automatically install and update front-end libraries required by your application or by its dependencies (ex. plugins).
+> **Note:** when running on production, your app/website will not need Node.js.
 
-> If you are installing an application based on Electro that bundles all the required front-end assets, you do not have to install Bower (and NodeJS).
+### 3. Configure your environment
 
-If you are creating a new project or developing an existing one, you must install Bower.
+You must add some paths to your environment's PATH variable:
 
-[Bower installation instructions](https://bower.io/#install-bower).
+Path                | Why?
+--------------------|--------
+`bin`               | So that Electro commands can be run easily on the terminal.
+`node_modules/.bin` | So that automation scripts may locate tools provide by Node packages
 
+> **Warning:** examples on the framework's documentation and Readme files assume your PATH is configured this way. Failure to do this will cause errors when running the examples or even when installing the framework.
 
-#### Configure your environment
-
-You should add `bin` to your environment's PATH variable, so that Electro commands can be run easily on the terminal.
-
-> Examples on the framework's documentation and Readme files assume your PATH is configured this way. Failure to do this will cause errors when running the examples.
-
-For using Bower (and commands provided by other Node.js packages that you may additionaly install), you should also add `node_modules/.bin` to PATH.
-
-##### Configuring the path
+#### Configuring the path
 
 **You only have to do this once**.
 You can skip this step if your path is already configured this way.
 
-> You can check your current path by typing: `echo $PATH`
+> You can check your current path by typing: `echo $PATH` on MacOS/Linux or `echo %PATH%` on Windows.
 
-###### On MacOS and Linux
+##### On MacOS and Linux
 
 Add this to your *shell environment*:
 
@@ -65,19 +60,19 @@ Add this to your *shell environment*:
 > Put this line at the end of **one** of these files: `~/.profile`, `~/.bash_profile` or `~/.bashrc`, in that preference order.<br>
 > Depending on your operating system type and configuration, one or more of these files may be present on your home folder.
 
-Restart your terminal to make the chages effective.
+Restart your terminal to apply the changes.
 
-###### On Windows
+##### On Windows
 
 To set persistent environment variables at the command line, we will use `setx.exe`. It became part of Windows as of Vista/Windows Server 2008. Prior to that, it was part of the Windows Resource Kit.
 
->`setx.exe` does not set the environment variable in the current command prompt, but it will be available in subsequent command prompts.
-
 Run this command:
 
-    setx PATH "bin;node_modules\\.bin;%PATH%"
+    setx PATH "bin;node_modules\.bin;%PATH%"
 
-#### Install the project
+Restart your terminal to apply the changes.
+
+### 4. Install the project
 
 On the parent folder where the project folder will be created, issue the `composer create-project` command on your terminal.
 
@@ -89,7 +84,7 @@ cd parent-folder
 composer create-project electro/electro your-project-name
 ```
 
-#### Follow the Configuration Wizard
+### 5. Follow the Configuration Wizard
 
 At the end of the installation procedure, the Configuration Wizard automatically runs to perform the final installation steps.
 
@@ -97,17 +92,17 @@ The Wizard scaffolds some of the application's directory structure and then proc
 
 Answer the Wizard's questions to customize the application to your needs.
 
-#### Check if it's working
+### 6. Check if it's working :-)
 
 After installation, the project should be ready to run.
 
 It is recommended to have a local Apache web server to run it. Alternatively, you may use the built-in development server (see below).
 
-If you have Apache installed, all you have to do now is to open the localhost URL corresponding to the project's folder on your browser.
+If you have Apache installed, all you have to do now is to open, on your browser, the localhost URL corresponding to the project's folder.
 
 You should see a welcome page.
 
-#### Using the built-in development server
+## Using the built-in development server
 
 The framework comes with its own built-in web server, suitable for development only. If you do not whish to install Apache on your computer, you may use it instead.
 
@@ -119,23 +114,9 @@ workman server:start
 
 The application will be available at `http://localhost:8000`.
 
-## Managing the installation
+> You may change the IP, port and other settings via command line options. Run `workman help server:start` to find out more.
 
-### Using the framework's Command Line Interface (workman)
-
-Electro comes with a command line interface (CLI), called `workman`, that allows you to perform several tasks from the command line.
-
-> The tasks/commands that are available depend on which plugins are installed. Your application may also provide its own commands.
-
-On your project's root directory, type:
-
-```bash
-workman
-```
-
-You'll get a list of available commands.
-
-Refer to the framework documentation for an explanation of each available command.
+## Beginning development
 
 ### Creating modules
 
@@ -162,6 +143,24 @@ workman make:matisse-module
 ```
 
 Workman will install the required packages and generate a ready to use scaffold with base templates, routing, navigation and module configuration.
+
+## Managing the installation
+
+### Using the framework's Command Line Interface (workman)
+
+Electro comes with a command line interface (CLI), called `workman`, that allows you to perform several tasks from the command line.
+
+> The tasks/commands that are available depend on which plugins are installed. Your application may also provide its own commands.
+
+On your project's root directory, type:
+
+```bash
+workman
+```
+
+You'll get a list of available commands.
+
+Refer to the framework documentation for an explanation of each available command.
 
 ### Installing/removing plugins, templates and Composer packages
 
@@ -191,7 +190,7 @@ workman remove
 
 Follow the interactive instructions. You may also call the command with additional arguments for uninstalling packages non-interactively.
 
-### A short introduction to private modules
+### Handling `composer.json` and package installations via Composer
 
 Private modules have their own `composer.json` and behave the same way as packages, but they are an integrant part of your application. As such, they are committed to your project's VCS repository directly and not installed from external sources, unlike other package types which are published on Packagist (or other private sources) and installable by Composer.
 
