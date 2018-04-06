@@ -1,7 +1,6 @@
 <?php
 namespace App;
 
-
 class Installation
 {
   /**
