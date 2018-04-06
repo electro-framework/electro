@@ -38,6 +38,6 @@
     "post-install-cmd": "App\\Bootloader::runInitCommand",
     "post-update-cmd": "App\\Bootloader::runUpdateCommand",
     "pre-package-uninstall": "App\\Bootloader::runUninstallCommand",
-    "post-root-package-install": "App\\Bootloader::runPreInstallCommand"
+    "post-root-package-install": "App\\Installation::runPreInstallCommand"
   }
 }
