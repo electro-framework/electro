@@ -6,7 +6,7 @@ class Installation
 {
   /**
    * @internal
-   * This is called by Composer on the `post-root-package-install` event.
+   * This is called by Composer on the `post-root-package-install` and `pre-install-cmd` events.
    * It installs Node.js tooling using npm.
    *
    * @param Composer\Script\PackageEvent $event
