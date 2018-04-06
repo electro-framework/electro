@@ -3,7 +3,7 @@ namespace App;
 
 use Electro\Kernel\Lib\PrimaryBootloader;
 
-if (@include dirname (__DIR__) . '/packages/electro/kernel/src/Kernel/Lib/PrimaryBootloader.php' !== false) {
+if ((@include dirname (__DIR__) . '/packages/electro/kernel/src/Kernel/Lib/PrimaryBootloader.php') !== false) {
 
   /**
    * A class that implements the application's initial bootstrapping sequence, which sets everything else in motion.
