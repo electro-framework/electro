@@ -1,0 +1,13 @@
+{
+  "name": "electro",
+  "version": "1.0.0",
+  "description": "Electro's development-time dependencies",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.4"
+  },
+  "scripts": {},
+  "repository": {},
+  "author": "",
+  "license": "MIT"
+}

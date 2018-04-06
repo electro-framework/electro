@@ -17,26 +17,65 @@ Use it as a starting point for developing a project based on Electro.**
   - Mcrypt
   - GD2
 
+#### Development-time requirements
+
+- Bower
+- Node.js + npm
+
 #### Install Composer
 
 Electro uses [Composer](http://getcomposer.org) to manage its dependencies. So, before using Electro, you will need to make sure you have Composer installed on your machine.
 
+[Composer installation instructions](https://getcomposer.org/doc/00-intro.md#system-requirements).
+
+#### Install Bower (optional)
+
+> Bower is only needed at development-time.
+
+Electro provides an integration between Composer and Bower that allows Composer to automatically install and update front-end libraries required by your application or by its dependencies (ex. plugins).
+
+> If you are installing an application based on Electro that bundles all the required front-end assets, you do not have to install Bower (and NodeJS).
+
+If you are creating a new project or developing an existing one, you must install Bower.
+
+[Bower installation instructions](https://bower.io/#install-bower).
+
+
 #### Configure your environment
 
-You should add `./bin` to your environment's PATH variable, so that Electro commands can be run easily on the terminal.
+You should add `bin` to your environment's PATH variable, so that Electro commands can be run easily on the terminal.
+
 > Examples on the framework's documentation and Readme files assume your PATH is configured this way. Failure to do this will cause errors when running the examples.
+
+For using Bower (and commands provided by other Node.js packages that you may additionaly install), you should also add `node_modules/.bin` to PATH.
 
 ##### Configuring the path
 
+**You only have to do this once**.
+You can skip this step if your path is already configured this way.
+
+> You can check your current path by typing: `echo $PATH`
+
+###### On MacOS and Linux
+
 Add this to your *shell environment*:
 
-	export PATH=./bin:$PATH
+	export PATH=bin:node_modules/.bin:$PATH
 
-> Put this line at the end of one of these files: `~/.bash_profile`, `~/.bashrc` or `~/.profile`, depending on you operating system type and configuration.
+> Put this line at the end of **one** of these files: `~/.profile`, `~/.bash_profile` or `~/.bashrc`, in that preference order.<br>
+> Depending on your operating system type and configuration, one or more of these files may be present on your home folder.
 
-**You only have to do this once**. Also, first make sure your path isn't already configured this way.
+Restart your terminal to make the chages effective.
 
-> Note: you can check your current path by typing: `echo $PATH`
+###### On Windows
+
+To set persistent environment variables at the command line, we will use `setx.exe`. It became part of Windows as of Vista/Windows Server 2008. Prior to that, it was part of the Windows Resource Kit.
+
+>`setx.exe` does not set the environment variable in the current command prompt, but it will be available in subsequent command prompts.
+
+Run this command:
+
+    setx PATH "bin;node_modules\\.bin;%PATH%"
 
 #### Install the project
 
