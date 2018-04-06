@@ -30,6 +30,9 @@ else {
 
   class Bootloader
   {
+    // Ignore call by 'post-create-project-cmd' event.
+    // This happens, for instance, when --no-scripts is used on 'composer create-project' followed by 'composer install'
+    static function runInitCommand () {}
   }
 
 }
