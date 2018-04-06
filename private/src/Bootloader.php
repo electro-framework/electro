@@ -28,7 +28,7 @@ if ((@include dirname (__DIR__) . '/packages/electro/kernel/src/Kernel/Lib/Prima
 }
 else {
 
-  class PrimaryBootloader
+  class Bootloader
   {
   }
 
