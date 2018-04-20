@@ -26,7 +26,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "electro/framework": "^0.10"
+    "electro/framework": "^1.0.0-beta1"
   },
   "autoload": {
     "psr-4": {
