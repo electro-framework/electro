@@ -10,6 +10,9 @@
   RewriteCond %{REQUEST_URI}%{ENV:PATH} ^(.*?)(.+)\2$
   RewriteRule ^ - [E=BASE_URI:%1]
 
+  # Restore the suppressed Authorization header on FastCGI servers.
+  SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+
   # Call the front-controller.
   RewriteRule ^ %{ENV:BASE_URI}/index.php [L]
 
