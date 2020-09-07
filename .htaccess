@@ -1,7 +1,8 @@
 <IfModule mod_rewrite.c>
 
-  # Can't use SymLinksIfOwnerMatch as it causes issues on windows
-  Options +FollowSymLinks
+  # Don't use SymLinksIfOwnerMatch on windows
+  Options +SymLinksIfOwnerMatch
+  #Options +FollowSymLinks
   RewriteEngine On
 
   # FIX: php-cgi under Apache does not pass HTTP Basic user/pass to PHP by default
