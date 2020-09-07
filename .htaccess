@@ -8,6 +8,9 @@
   RewriteCond %{HTTP:Authorization} ^(.+)$
   RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+  # Allow .well-known directory for use by Let's Encrypt.
+  RewriteRule ^\.well-known - [L]
+
   # Deny access to:
   # - the private folder,
   # - any path starting with a dot,
