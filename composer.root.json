@@ -21,12 +21,15 @@
   "config": {
     "preferred-install": "dist",
     "vendor-dir": "private/packages",
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "allow-plugins": {
+      "electro/installers": true
+    }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "electro/framework": "^1.0.0-beta1"
+    "electro/framework": "dev-latest"
   },
   "autoload": {
     "psr-4": {

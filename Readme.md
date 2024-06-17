@@ -9,12 +9,11 @@ Use it as a starting point for developing a project based on Electro.**
 
 ### Runtime requirements
 
-- PHP >= 5.6
+- PHP >= 8.3
 - Composer
 - PHP Extensions:
   - PDO
   - CURL
-  - Mcrypt
   - GD2
 
 ### Development-time requirements
